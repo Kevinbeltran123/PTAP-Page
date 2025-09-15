@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visualización interactiva de la Planta de Tratamiento de Agua Potable La Pola - IBAL">
+    <meta name="keywords" content="PTAP, tratamiento agua, IBAL, Ibagué, ingeniería ambiental">
+    <meta name="author" content="Kevin Beltrán - Universidad">
+    
+    <title>PTAP La Pola - Visualización Interactiva | IBAL</title>
+    
+    <!-- External Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="PTAP La Pola - Visualización Interactiva">
+    <meta property="og:description" content="Exploración interactiva del proceso de tratamiento de agua potable en Ibagué">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/username/ptap-la-pola-interactive">
+    <meta property="og:image" content="assets/images/preview.jpg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="assets/images/ibal-logo.png" alt="IBAL Logo" class="logo">
+                    <div class="title-section">
+                        <h1>PLANTA DE TRATAMIENTO DE AGUA POTABLE LA POLA</h1>
+                        <p class="subtitle">Empresa Ibaguereña de Acueducto y Alcantarillado - IBAL S.A. E.S.P.</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1,700</span>
+                        <span class="stat-label">L/s</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">180K</span>
+                        <span class="stat-label">Usuarios</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Interactive Guide -->
+            <section class="interactive-guide">
+                <div class="guide-content">
+                    <h2>🖱️ Guía Interactiva</h2>
+                    <p>Haga clic en cualquier proceso para explorar información detallada con animaciones y especificaciones técnicas</p>
+                </div>
+            </section>
+
+            <!-- Process Flow Diagram -->
+            <section class="process-flow-section">
+                <div class="flow-diagram">
+                    <div class="main-flow">
+                        <div class="process-box source" data-process="captacion">
+                            <div class="process-icon">🏔️</div>
+                            <div class="process-title">CAPTACIÓN</div>
+                            <div class="process-details">
+                                Río Combeima<br>
+                                1,500 L/s<br>
+                                Q. Cay 600 L/s<br>
+                                Q. Chembe 70 L/s
+                            </div>
+                        </div>
+                        
+                        <div class="arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"></div>
+                        </div>
+                        
+                        <div class="process-box pretreatment" data-process="desarenador">
+                            <div class="process-icon">🔄</div>
+                            <div class="process-title">DESARENADOR</div>
+                            <div class="process-details">
+                                Remoción de<br>
+                                arenas y sólidos<br>
+                                gruesos
+                            </div>
+                        </div>
+                        
+                        <div class="arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"></div>
+                        </div>
+                        
+                        <div class="process-box coagulation" data-process="coagulacion">
+                            <div class="process-icon">⚗️</div>
+                            <div class="process-title">COAGULACIÓN-<br>FLOCULACIÓN</div>
+                            <div class="process-details">
+                                Sulfato de Al<br>
+                                15-40 mg/L<br>
+                                TRH: 15-20 min
+                            </div>
+                        </div>
+                        
+                        <div class="arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"></div>
+                        </div>
+                        
+                        <div class="process-box sedimentation" data-process="sedimentacion">
+                            <div class="process-icon">🏗️</div>
+                            <div class="process-title">SEDIMENTACIÓN</div>
+                            <div class="process-details">
+                                Paneles tipo<br>
+                                colmena<br>
+                                TRH: 2-3 horas
+                            </div>
+                        </div>
+                        
+                        <div class="arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"></div>
+                        </div>
+                        
+                        <div class="process-box filtration" data-process="filtracion">
+                            <div class="process-icon">🏭</div>
+                            <div class="process-title">FILTRACIÓN</div>
+                            <div class="process-details">
+                                Multimedia:<br>
+                                Antracita<br>
+                                Arena<br>
+                                Grava
+                            </div>
+                        </div>
+                        
+                        <div class="arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"></div>
+                        </div>
+                        
+                        <div class="process-box disinfection" data-process="desinfeccion">
+                            <div class="process-icon">☢️</div>
+                            <div class="process-title">DESINFECCIÓN</div>
+                            <div class="process-details">
+                                Cloro gaseoso<br>
+                                0.8-2.0 mg/L<br>
+                                TC: 30 min
+                            </div>
+                        </div>
+                        
+                        <div class="arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"></div>
+                        </div>
+                        
+                        <div class="process-box storage" data-process="almacenamiento">
+                            <div class="process-icon">🏪</div>
+                            <div class="process-title">ALMACENA-<br>MIENTO</div>
+                            <div class="process-details">
+                                Tanques<br>
+                                25,000 m³<br>
+                                cap. total
+                            </div>
+                        </div>
+                        
+                        <div class="arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"></div>
+                        </div>
+                        
+                        <div class="process-box distribution" data-process="distribucion">
+                            <div class="process-icon">🏘️</div>
+                            <div class="process-title">DISTRIBUCIÓN</div>
+                            <div class="process-details">
+                                10 Distritos<br>
+                                180,000<br>
+                                suscriptores
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Statistics -->
+            <section class="statistics-section">
+                <div class="stats-grid">
+                    <div class="stat-card capacity">
+                        <div class="stat-icon">💧</div>
+                        <h3>Capacidad Total</h3>
+                        <p class="stat-number">1,700 L/s</p>
+                    </div>
+                    <div class="stat-card coverage">
+                        <div class="stat-icon">👥</div>
+                        <h3>Población Atendida</h3>
+                        <p class="stat-number">85%</p>
+                    </div>
+                    <div class="stat-card quality">
+                        <div class="stat-icon">✅</div>
+                        <h3>IRCA Declarado</h3>
+                        <p class="stat-number">0.0%</p>
+                    </div>
+                    <div class="stat-card investment">
+                        <div class="stat-icon">💰</div>
+                        <h3>Inversión Modernización</h3>
+                        <p class="stat-number">$2,119M</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Parameters -->
+            <section class="parameters-section">
+                <h2>Parámetros Técnicos del Sistema</h2>
+                <div class="parameters-grid">
+                    <div class="parameter-card raw-water">
+                        <h3>Variables de Control - Agua Cruda</h3>
+                        <ul class="parameter-list">
+                            <li>
+                                <span class="param-name">Turbiedad máxima</span>
+                                <span class="param-value">12,000 NTU</span>
+                            </li>
+                            <li>
+                                <span class="param-name">pH óptimo</span>
+                                <span class="param-value">6.5 - 8.5</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Temperatura</span>
+                                <span class="param-value">18 - 22°C</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Caudal pico</span>
+                                <span class="param-value">1,700 L/s</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="parameter-card efficiency">
+                        <h3>Eficiencias de Remoción</h3>
+                        <ul class="parameter-list">
+                            <li>
+                                <span class="param-name">Turbiedad</span>
+                                <span class="param-value">>98%</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Color</span>
+                                <span class="param-value">>95%</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Sólidos suspendidos</span>
+                                <span class="param-value">>90%</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Coliformes</span>
+                                <span class="param-value">100%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="parameter-card treated-water">
+                        <h3>Parámetros Agua Tratada</h3>
+                        <ul class="parameter-list">
+                            <li>
+                                <span class="param-name">Turbiedad</span>
+                                <span class="param-value">&lt;1.0 NTU</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Color</span>
+                                <span class="param-value">&lt;5 UPC</span>
+                            </li>
+                            <li>
+                                <span class="param-name">pH</span>
+                                <span class="param-value">6.5 - 8.0</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Cloro residual</span>
+                                <span class="param-value">0.3 - 0.8 mg/L</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="parameter-card chemicals">
+                        <h3>Dosificación Química</h3>
+                        <ul class="parameter-list">
+                            <li>
+                                <span class="param-name">Sulfato de Aluminio</span>
+                                <span class="param-value">15-40 mg/L</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Polímero</span>
+                                <span class="param-value">0.1-0.5 mg/L</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Cloro gas</span>
+                                <span class="param-value">0.8-2.0 mg/L</span>
+                            </li>
+                            <li>
+                                <span class="param-name">Cal (ajuste pH)</span>
+                                <span class="param-value">Según demanda</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Legend -->
+            <section class="legend-section">
+                <h2>Convenciones del Proceso</h2>
+                <div class="legend-grid">
+                    <div class="legend-item">
+                        <div class="legend-color source"></div>
+                        <span>Captación de agua cruda</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color pretreatment"></div>
+                        <span>Pretratamiento físico</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color coagulation"></div>
+                        <span>Tratamiento químico</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color sedimentation"></div>
+                        <span>Clarificación</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color filtration"></div>
+                        <span>Pulimento</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color disinfection"></div>
+                        <span>Desinfección</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Proyecto Académico</h3>
+                    <p>Desarrollado para el curso de Procesos 2</p>
+                    <p>Universidad - Ingeniería Ambiental</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Fuentes</h3>
+                    <p>Documentación oficial IBAL</p>
+                    <p>Resoluciones técnicas colombianas</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Tecnologías</h3>
+                    <p>HTML5, CSS3, JavaScript ES6+</p>
+                    <p>Diseño responsivo y accesible</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kevin Beltrán. Proyecto educativo bajo licencia MIT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- UI Components -->
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressIndicator">
+        <div class="progress-header">
+            <h4>Progreso de Exploración</h4>
+            <button class="progress-close" id="progressClose">&times;</button>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-info">
+            <span id="visitedCount">0</span>/8 procesos explorados
+        </div>
+        <div class="process-indicators">
+            <span class="process-indicator" data-process="captacion" title="Captación"></span>
+            <span class="process-indicator" data-process="desarenador" title="Desarenador"></span>
+            <span class="process-indicator" data-process="coagulacion" title="Coagulación"></span>
+            <span class="process-indicator" data-process="sedimentacion" title="Sedimentación"></span>
+            <span class="process-indicator" data-process="filtracion" title="Filtración"></span>
+            <span class="process-indicator" data-process="desinfeccion" title="Desinfección"></span>
+            <span class="process-indicator" data-process="almacenamiento" title="Almacenamiento"></span>
+            <span class="process-indicator" data-process="distribucion" title="Distribución"></span>
+        </div>
+    </div>
+
+    <!-- Floating Help Button -->
+    <button class="floating-help" id="helpButton" title="Ayuda">
+        <span>?</span>
+    </button>
+
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip" role="tooltip"></div>
+
+    <!-- Modal for Process Details -->
+    <div class="modal" id="processModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-subtitle" id="modalSubtitle"></p>
+                <button class="modal-close" id="modalClose" aria-label="Cerrar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="assets/images/ibal-logo.png" alt="IBAL">
+            </div>
+            <div class="loading-text">
+                <h2>Cargando PTAP La Pola</h2>
+                <p>Preparando visualización interactiva...</p>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data/processData.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/components/modal.js"></script>
+    <script src="js/components/tooltip.js"></script>
+    <script src="js/components/progress.js"></script>
+    <script src="js/animations/processAnimations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

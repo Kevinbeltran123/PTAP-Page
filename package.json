@@ -1,0 +1,121 @@
+{
+  "name": "ptap-la-pola-interactive",
+  "version": "1.0.0",
+  "description": "Interactive visualization of PTAP La Pola water treatment processes - Educational project for Environmental Engineering",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "npx clean-css-cli css/*.css -o dist/styles.min.css",
+    "minify-js": "npx uglify-js js/**/*.js -o dist/scripts.min.js",
+    "test": "npx lighthouse http://localhost:3000 --view",
+    "validate": "npx html-validate index.html",
+    "optimize": "npx imagemin assets/images/* --out-dir=assets/images/optimized",
+    "deploy": "npm run build && npx gh-pages -d .",
+    "lint": "npx eslint js/**/*.js",
+    "format": "npx prettier --write \"**/*.{html,css,js,md}\"",
+    "audit": "npm audit && npx lighthouse-ci --collect.numberOfRuns=3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-username/ptap-la-pola-interactive.git"
+  },
+  "keywords": [
+    "water-treatment",
+    "environmental-engineering",
+    "interactive-visualization",
+    "education",
+    "ptap",
+    "ibal",
+    "ibague",
+    "colombia",
+    "water-quality",
+    "academic-project"
+  ],
+  "author": {
+    "name": "Kevin Beltrán",
+    "email": "kevin.beltran@universidad.edu",
+    "url": "https://github.com/kevin-beltran"
+  },
+  "license": "MIT",
+  "homepage": "https://tu-username.github.io/ptap-la-pola-interactive/",
+  "bugs": {
+    "url": "https://github.com/tu-username/ptap-la-pola-interactive/issues"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.57.0",
+    "gh-pages": "^6.1.1",
+    "html-validate": "^8.15.0",
+    "imagemin-cli": "^7.0.0",
+    "lighthouse": "^11.7.0",
+    "lighthouse-ci": "^0.12.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1",
+    "uglify-js": "^3.17.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "files": [
+    "index.html",
+    "css/",
+    "js/",
+    "assets/",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ],
+  "config": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/kevin-beltran"
+  },
+  "contributors": [
+    {
+      "name": "Kevin Beltrán",
+      "email": "kevin.beltran@universidad.edu",
+      "role": "Main Developer"
+    }
+  ],
+  "educational": {
+    "course": "Procesos de Tratamiento de Aguas 2",
+    "university": "Universidad",
+    "program": "Ingeniería Ambiental",
+    "semester": "2024-2",
+    "objectives": [
+      "Understand water treatment processes",
+      "Analyze operational parameters",
+      "Evaluate modernization technologies",
+      "Connect theory with practical application"
+    ]
+  },
+  "technical": {
+    "framework": "Vanilla JavaScript",
+    "styling": "CSS3 with Custom Properties",
+    "responsive": "Mobile-First Design",
+    "accessibility": "WCAG 2.1 AA",
+    "performance": "Lighthouse Score > 90",
+    "browser-support": "Modern browsers (ES6+)"
+  },
+  "project": {
+    "status": "active",
+    "stage": "production",
+    "type": "educational",
+    "complexity": "intermediate",
+    "estimated-hours": 40,
+    "last-updated": "2024-09-15"
+  }
+}

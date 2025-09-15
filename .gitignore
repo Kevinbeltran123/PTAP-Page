@@ -1,0 +1,322 @@
+# PTAP La Pola - Git Ignore Rules
+# Prevents unnecessary files from being tracked in version control
+
+# ========================
+# Operating System Files
+# ========================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.tmp
+*.temp
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ========================
+# Development Tools
+# ========================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ========================
+# IDE and Editor Files
+# ========================
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ========================
+# Build and Distribution
+# ========================
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.temp/
+.tmp/
+
+# Compiled CSS (if using preprocessors)
+*.css.map
+*.scss.css
+*.sass.css
+*.less.css
+
+# Minified files
+*.min.js
+*.min.css
+*.min.html
+
+# Source maps
+*.map
+
+# ========================
+# Testing and Coverage
+# ========================
+
+# Test results
+coverage/
+*.lcov
+.nyc_output/
+.coverage/
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Jest
+jest_output/
+
+# ========================
+# Logs and Databases
+# ========================
+
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# ========================
+# Archives and Backups
+# ========================
+
+# Compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+backup/
+backups/
+
+# ========================
+# Documentation Build
+# ========================
+
+# Generated documentation
+docs/_build/
+docs/build/
+site/
+_site/
+
+# Markdown processor outputs
+*.html.markdown
+*.md.html
+
+# ========================
+# Temporary Development Files
+# ========================
+
+# Temporary development images
+temp_images/
+temp_assets/
+temp/
+
+# Local configuration overrides
+config.local.js
+settings.local.json
+
+# Development server files
+.dev/
+dev/
+
+# ========================
+# Security and Credentials
+# ========================
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# API keys and secrets
+secrets/
+credentials/
+.credentials/
+
+# ========================
+# Project Specific
+# ========================
+
+# Original files (keep for reference but don't track)
+/original/
+PrimerParcial.html
+PrimerParcial_Interactive.html
+
+# Large PDF files (link instead of including)
+*.pdf
+!assets/docs/technical-specs.pdf
+
+# High resolution images (optimize before committing)
+*.raw
+*.tiff
+*.tif
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+
+# ========================
+# Analytics and Tracking
+# ========================
+
+# Google Analytics
+gtag/
+analytics/
+
+# Error tracking
+.sentry/
+
+# ========================
+# Deployment
+# ========================
+
+# FTP deployment
+.ftpconfig
+.ftppass
+
+# Deployment scripts with credentials
+deploy.sh
+deploy.bat
+
+# Static site generators
+.jekyll-cache/
+.jekyll-metadata
+
+# ========================
+# Misc
+# ========================
+
+# Thumbnails
+*.thumbnail
+
+# Icon cache
+*.ico.cache
+
+# Folder config file
+.folder.config
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# ========================
+# Keep These Files
+# ========================
+
+# Always track these important files
+!README.md
+!LICENSE
+!.gitignore
+!index.html
+!package.json

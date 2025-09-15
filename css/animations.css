@@ -1,0 +1,473 @@
+/* 
+ * PTAP La Pola - Animations & Effects
+ * CSS Animations for Interactive Elements
+ * Author: Kevin Beltrán
+ */
+
+/* Animation Keyframes */
+
+/* Flow Animation for Arrows */
+@keyframes flow {
+    0%, 100% { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateX(15px);
+        opacity: 0.7;
+    }
+}
+
+/* Pulse Animation for Active Elements */
+@keyframes pulse {
+    0%, 100% { 
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 12px 35px rgba(67, 142, 245, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+/* Water Pulse Animation for Sources */
+@keyframes waterPulse {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 0 0 rgba(33, 150, 243, 0.7);
+    }
+    50% { 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 0 10px rgba(33, 150, 243, 0);
+    }
+}
+
+/* Water Flow Animation */
+@keyframes waterFlow {
+    0% { 
+        transform: translateY(-10px); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(160px); 
+        opacity: 0; 
+    }
+}
+
+/* Particle Movement Animation */
+@keyframes particleMove {
+    0% { 
+        transform: rotate(0deg) translateX(30px) rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg) translateX(30px) rotate(-360deg); 
+    }
+}
+
+/* Sand Fall Animation */
+@keyframes sandFall {
+    0% { 
+        transform: translateY(0px); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(60px); 
+        opacity: 0; 
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateX(-30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.8); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0, -30px, 0);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0, -15px, 0);
+    }
+    90% {
+        transform: translate3d(0,-4px,0);
+    }
+}
+
+/* Shake Animation */
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Ripple Effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Animation Classes */
+
+/* Arrow Flow Animation */
+.arrow-body {
+    animation: flow 3s ease-in-out infinite;
+}
+
+/* Active Process Animation */
+.process-box.active {
+    animation: pulse 2s infinite;
+}
+
+/* Water Source Animations */
+.source-combeima {
+    animation: waterPulse 2s ease-in-out infinite;
+}
+
+.source-cay {
+    animation: waterPulse 2.5s ease-in-out infinite;
+}
+
+.source-chembe {
+    animation: waterPulse 3s ease-in-out infinite;
+}
+
+/* Page Load Animations */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.6s ease-out;
+}
+
+.scale-in {
+    animation: scaleIn 0.4s ease-out;
+}
+
+.bounce-in {
+    animation: bounce 1s ease-out;
+}
+
+/* Hover Animations */
+.hover-lift {
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+    transition: transform var(--transition-normal);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-rotate {
+    transition: transform var(--transition-normal);
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+/* Loading Animations */
+.loading-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Text Animations */
+.typing-effect {
+    overflow: hidden;
+    border-right: 2px solid var(--primary-blue);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-blue); }
+}
+
+/* Stagger Animation for Multiple Elements */
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-animation > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-animation > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* Process-Specific Animations */
+
+/* Filtration Animation */
+.water-particles {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--info-blue);
+    border-radius: 50%;
+    animation: waterFlow 3s linear infinite;
+}
+
+/* Coagulation Animation */
+.particles {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    animation: particleMove 2s linear infinite;
+}
+
+/* Sedimentation Animation */
+.settling-particles {
+    animation: sandFall 3s linear infinite;
+}
+
+/* Filter Layers Animation */
+.filter-layers {
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-layer {
+    transition: all var(--transition-slow);
+}
+
+.filter-animation:hover .filter-layer {
+    transform: translateY(-2px);
+}
+
+/* Mixing Chamber Animation */
+.mixing-chamber {
+    position: relative;
+    animation: shake 2s ease-in-out infinite;
+}
+
+/* Progress Bar Animation */
+.progress-fill {
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal Animations */
+.modal-content {
+    animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Ripple Effect for Buttons */
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Gradient Background Animation */
+.animated-gradient {
+    background: linear-gradient(-45deg, var(--primary-blue), var(--primary-purple), var(--secondary-cyan), var(--accent-green));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Floating Animation */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Glow Effect */
+.glow-effect {
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+    transition: box-shadow var(--transition-normal);
+}
+
+.glow-effect:hover {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+}
+
+/* Success Animation */
+.success-animation {
+    animation: bounce 0.6s ease-out;
+}
+
+/* Error Animation */
+.error-animation {
+    animation: shake 0.6s ease-out;
+}
+
+/* Attention Animation */
+.attention {
+    animation: pulse 2s infinite;
+}
+
+/* Delayed Animations */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Speed Modifiers */
+.slow { animation-duration: 2s; }
+.fast { animation-duration: 0.5s; }
+
+/* Animation States */
+.paused { animation-play-state: paused; }
+.running { animation-play-state: running; }
+
+/* Intersection Observer Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Performance Optimizations */
+.will-change {
+    will-change: transform, opacity;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Responsive Animations */
+@media (max-width: 768px) {
+    .process-box:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+    
+    .arrow-body {
+        animation-duration: 4s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .process-box:hover {
+        transform: none;
+    }
+    
+    .arrow-body,
+    .water-particles,
+    .particles,
+    .floating,
+    .animated-gradient {
+        animation: none;
+    }
+    
+    .pulse,
+    .waterPulse,
+    .bounce,
+    .shake {
+        animation: none;
+    }
+}
