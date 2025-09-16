@@ -7,30 +7,33 @@
 
 /* CSS Variables for Theme Consistency */
 :root {
-    /* Color Palette */
-    --primary-blue: #667eea;
-    --primary-purple: #764ba2;
-    --secondary-cyan: #4facfe;
-    --secondary-teal: #00f2fe;
-    --accent-green: #43e97b;
-    --accent-turquoise: #38f9d7;
-    --warning-orange: #fa709a;
-    --warning-yellow: #fee140;
-    --dark-blue: #30cfd0;
-    --dark-purple: #330867;
-    --light-pink: #a8edea;
-    --light-peach: #fed6e3;
-    --coral: #ff9a9e;
-    --soft-pink: #fecfef;
+    /* Academic Water Treatment Color Palette */
+    --primary-navy: #1e3a8a;
+    --primary-navy-light: #3b82f6;
+    --secondary-teal: #0f766e;
+    --secondary-teal-light: #14b8a6;
+    --accent-slate: #475569;
+    --accent-slate-light: #64748b;
+    --neutral-gray: #6b7280;
+    --neutral-gray-light: #9ca3af;
+    
+    /* Legacy support for existing references */
+    --water-primary: #1e3a8a;
+    --water-secondary: #3b82f6;
+    --water-light: #87ceeb;
+    --water-dark: #1e3a8a;
     
     /* Neutral Colors */
-    --dark-gray: #2c3e50;
-    --medium-gray: #7f8c8d;
-    --light-gray: #ecf0f1;
-    --background-light: #f8f9fa;
+    --dark-gray: #1e293b;
+    --medium-gray: #64748b;
+    --light-gray: #e2e8f0;
+    --background-light: #f1f5f9;
+    --background-card: #ffffff;
     --white: #ffffff;
-    --success-green: #27ae60;
-    --info-blue: #3498db;
+    --success-green: #059669;
+    --warning-amber: #d97706;
+    --error-red: #dc2626;
+    --info-blue: #0891b2;
     
     /* Typography */
     --font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -85,7 +88,7 @@ html {
 
 body {
     font-family: var(--font-family);
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #cffafe 100%);
     min-height: 100vh;
     line-height: 1.6;
     color: var(--dark-gray);
@@ -188,16 +191,18 @@ img {
 }
 
 .title-section h1 {
-    color: var(--dark-gray);
+    color: #1e293b;
     margin-bottom: var(--spacing-xs);
     font-size: var(--font-size-xxl);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-weight: 700;
+    text-shadow: none;
 }
 
 .subtitle {
-    color: var(--medium-gray);
+    color: #475569;
     font-size: var(--font-size-large);
     margin: 0;
+    font-weight: 500;
 }
 
 .header-stats {
@@ -208,7 +213,7 @@ img {
 .stat-item {
     text-align: center;
     padding: var(--spacing-md);
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light));
     color: white;
     border-radius: var(--border-radius-md);
     min-width: 80px;
@@ -245,14 +250,21 @@ img {
     box-shadow: var(--shadow-md);
     max-width: 800px;
     margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.guide-content p {
+    color: #475569;
+    font-size: var(--font-size-large);
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.6;
 }
 
 .guide-content h2 {
-    background: linear-gradient(135deg, var(--warning-orange), var(--warning-yellow));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1e293b;
     margin-bottom: var(--spacing-md);
+    font-weight: 600;
 }
 
 /* Statistics Section */
@@ -304,7 +316,7 @@ img {
 .stat-card .stat-number {
     font-size: var(--font-size-hero);
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    background: linear-gradient(135deg, var(--primary-navy), var(--secondary-teal));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -318,8 +330,9 @@ img {
 .parameters-section h2 {
     text-align: center;
     margin-bottom: var(--spacing-xl);
-    color: var(--white);
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: 600;
 }
 
 .parameters-grid {
@@ -378,8 +391,9 @@ img {
 .legend-section h2 {
     text-align: center;
     margin-bottom: var(--spacing-xl);
-    color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: #1e293b;
+    text-shadow: none;
+    font-weight: 600;
 }
 
 .legend-grid {
@@ -408,19 +422,25 @@ img {
     flex-shrink: 0;
 }
 
-.legend-color.source { background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); }
-.legend-color.pretreatment { background: linear-gradient(135deg, #f093fb, #f5576c); }
-.legend-color.coagulation { background: linear-gradient(135deg, var(--secondary-cyan), var(--secondary-teal)); }
-.legend-color.sedimentation { background: linear-gradient(135deg, var(--accent-green), var(--accent-turquoise)); }
-.legend-color.filtration { background: linear-gradient(135deg, var(--warning-orange), var(--warning-yellow)); }
-.legend-color.disinfection { background: linear-gradient(135deg, var(--dark-blue), var(--dark-purple)); }
+.legend-color.source,
+.legend-color.pretreatment { background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light)); }
+.legend-color.coagulation,
+.legend-color.sedimentation { background: linear-gradient(135deg, var(--secondary-teal), var(--secondary-teal-light)); }
+.legend-color.filtration,
+.legend-color.disinfection { background: linear-gradient(135deg, var(--accent-slate), var(--accent-slate-light)); }
+.legend-color.storage,
+.legend-color.distribution { background: linear-gradient(135deg, var(--neutral-gray), var(--neutral-gray-light)); }
 
 /* Footer */
 .main-footer {
     background: rgba(0, 0, 0, 0.8);
-    color: var(--white);
+    color: var(--white) !important;
     margin-top: var(--spacing-xxl);
     border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+}
+
+.main-footer * {
+    color: #f5f5dc !important;
 }
 
 .footer-content {
@@ -437,15 +457,30 @@ img {
 }
 
 .footer-section p {
+    color: var(--white);
     opacity: 0.8;
     margin-bottom: var(--spacing-sm);
+}
+
+.footer-section ul {
+    color: var(--white);
+}
+
+.footer-section li {
+    color: var(--white);
+    opacity: 0.8;
 }
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding: var(--spacing-lg) 0;
     text-align: center;
+    color: var(--white);
     opacity: 0.7;
+}
+
+.footer-bottom p {
+    color: var(--white);
 }
 
 /* Utility Classes */

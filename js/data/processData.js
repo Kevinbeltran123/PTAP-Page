@@ -12,40 +12,24 @@ const processData = {
         icon: "🏔️",
         content: `
             <div class="water-sources-map">
-                <h3>🗺️ Mapa Geográfico Interactivo - Región de Ibagué</h3>
-                <div class="map-container">
-                    <!-- Geographical Features -->
-                    <div class="mountains">
-                        <div class="mountain-labels">Cordillera Central</div>
-                    </div>
-                    
-                    <!-- Rivers and Streams -->
-                    <div class="rivers">
-                        <div class="river-combeima"></div>
-                        <div class="quebrada-cay"></div>
-                        <div class="quebrada-chembe"></div>
-                    </div>
-                    
-                    <!-- City and Plant -->
-                    <div class="city-ibague">IBAGUÉ</div>
-                    <div class="plant-location" title="PTAP La Pola">🏭</div>
-                    
-                    <!-- Water Sources -->
-                    <div class="water-source source-combeima" data-source="combeima">
-                        <div class="source-label">Río Combeima<br>1,500 L/s<br>📍 Vereda Llanitos</div>
-                        🏔️
-                    </div>
-                    <div class="water-source source-cay" data-source="cay">
-                        <div class="source-label">Q. Cay<br>600 L/s<br>💧 Fuente estable</div>
-                        🌊
-                    </div>
-                    <div class="water-source source-chembe" data-source="chembe">
-                        <div class="source-label">Q. Chembe<br>70 L/s<br>⚠️ Alta variabilidad</div>
-                        💧
+                <h3>🗺️ Sistema de Captación PTAP La Pola - Ibagué, Tolima</h3>
+                <div class="osm-map-container">
+                    <div id="captacionMap" class="leaflet-map"></div>
+                    <div class="map-controls">
+                        <button id="centerMapBtn" class="map-control-btn" title="Centrar en Ibagué">🎯</button>
+                        <button id="toggleTerrainBtn" class="map-control-btn" title="Cambiar vista">🗺️</button>
                     </div>
                 </div>
-                <div style="margin-top: 15px; font-size: 0.9em; color: #666; text-align: center;">
-                    <strong>Leyenda:</strong> 🏔️ Captación principal • 🌊 Fuente secundaria • 💧 Fuente menor • 🏭 PTAP La Pola
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.9); border-radius: 10px; font-size: 0.85em; color: #333;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin-bottom: 10px;">
+                        <div><strong>🏔️ Río Combeima:</strong> 1,500 L/s (82% del suministro)</div>
+                        <div><strong>🌊 Q. Cay:</strong> 600 L/s (Fuente estable)</div>
+                        <div><strong>💧 Q. Chembe:</strong> 70 L/s (Alta variabilidad)</div>
+                        <div><strong>🏭 PTAP La Pola:</strong> Planta de tratamiento</div>
+                    </div>
+                    <div style="border-top: 1px solid #ddd; padding-top: 8px; font-size: 0.8em; color: #666;">
+                        <strong>Datos topográficos:</strong> Basado en elevaciones reales del SRTM. Rango altitudinal: 308m - 5,212m snm
+                    </div>
                 </div>
             </div>
             
@@ -508,51 +492,74 @@ const processData = {
         subtitle: "10 distritos hidráulicos - 180,000 suscriptores",
         icon: "🏘️",
         content: `
-            <div class="animation-container">
-                <h4>🗺️ Red de Distribución por Distritos</h4>
-                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; max-width: 500px; margin: 0 auto;">
-                    ${Array(10).fill().map((_, i) => `
-                        <div style="background: linear-gradient(135deg, #ff9a9e, #fecfef); padding: 15px; border-radius: 8px; text-align: center; font-size: 0.8em; font-weight: bold; color: #333;">
-                            Distrito ${i + 1}
-                            ${i === 0 ? '<div style="font-size: 0.7em; margin-top: 5px;">87 barrios</div>' : 
-                              i === 1 ? '<div style="font-size: 0.7em; margin-top: 5px;">Centro-Norte</div>' : ''}
-                        </div>
-                    `).join('')}
-                </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <div style="font-weight: bold; font-size: 1.2em; color: #1976d2;">
-                        Cobertura: 85% Población Ibaguereña
+            <div class="water-sources-map">
+                <h3>🗺️ Distritos Hidráulicos de Distribución - IBAL Ibagué</h3>
+                <div class="osm-map-container">
+                    <div id="distribucionMap" class="leaflet-map"></div>
+                    <div class="map-controls">
+                        <button id="centerDistrictBtn" class="map-control-btn" title="Centrar en distritos">🎯</button>
+                        <button id="toggleDistrictsBtn" class="map-control-btn" title="Mostrar/Ocultar distritos">👁️</button>
+                        <button id="toggleLayerBtn" class="map-control-btn" title="Cambiar vista">🗺️</button>
                     </div>
-                    <div style="margin-top: 10px; color: #666;">
-                        Sistema de "semaforización" según demanda y disponibilidad
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.9); border-radius: 10px; font-size: 0.85em; color: #333;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 10px;">
+                        <div><strong>🏘️ Distrito 1:</strong> Centro, Belén</div>
+                        <div><strong>🏘️ Distrito 2:</strong> Ancón, Malabar, Centro</div>
+                        <div><strong>🏘️ Distrito 5-6:</strong> Comfenalco, Santa Rita</div>
+                        <div><strong>🏘️ Distrito 7:</strong> Montecarlo, El Vergel</div>
+                        <div><strong>🏘️ Distrito 8-9:</strong> Los Tunjos, Picaleña</div>
+                        <div><strong>🏘️ Distrito 10:</strong> Ciudadela Simón Bolívar</div>
+                    </div>
+                    <div style="border-top: 1px solid #ddd; padding-top: 8px; font-size: 0.8em; color: #666;">
+                        <strong>Sistema:</strong> 10 distritos hidráulicos, 13 tanques de suministro, 25,000 m³ de almacenamiento
                     </div>
                 </div>
             </div>
             
             <div class="technical-specs">
-                <h4>📊 Características del Sistema</h4>
+                <h4>📊 Características del Sistema de Distribución</h4>
                 <div class="specs-grid">
                     <div class="spec-item">
                         <div class="spec-label">Distritos Hidráulicos</div>
-                        <div class="spec-value">10 sectores sectorizados</div>
+                        <div class="spec-value">10 sectores operativos</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Suscriptores Activos</div>
-                        <div class="spec-value">Más de 180,000</div>
+                        <div class="spec-value">171,000+ usuarios</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Barrios Atendidos</div>
+                        <div class="spec-value">~500 barrios</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Cobertura IBAL</div>
                         <div class="spec-value">85% población ibaguereña</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Distribución Restante</div>
+                        <div class="spec-label">Tanques de Suministro</div>
+                        <div class="spec-value">13 tanques distribuidos</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Capacidad Total</div>
+                        <div class="spec-value">25,000 m³ almacenamiento</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Sistema de Control</div>
+                        <div class="spec-value">Semaforización inteligente</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Restante</div>
                         <div class="spec-value">15% - 32 acueductos comunitarios</div>
                     </div>
                 </div>
             </div>
             
-            <p><strong>🎯 Función:</strong> La sectorización permite control eficiente del suministro mediante 
-            "semaforización" del servicio según demanda y disponibilidad, optimizando presiones según topografía.</p>
+            <p><strong>🎯 Función:</strong> La sectorización hidráulica permite control eficiente del suministro mediante 
+            regulación por distritos y "semaforización" del servicio según demanda, disponibilidad y topografía urbana.</p>
+            
+            <p><strong>⚙️ Control Operativo:</strong> IBAL gestiona 10 distritos hidráulicos con monitoreo continuo de presiones, 
+            calidad del agua y distribución equitativa a través de 13 tanques estratégicamente ubicados.</p>
         `
     }
 };

@@ -17,11 +17,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/main.css?v=2">
+    <link rel="stylesheet" href="css/components.css?v=4">
+    <link rel="stylesheet" href="css/animations.css?v=2">
+    <link rel="stylesheet" href="css/responsive.css?v=2">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="PTAP La Pola - Visualización Interactiva">
@@ -311,36 +316,6 @@
                 </div>
             </section>
 
-            <!-- Process Legend -->
-            <section class="legend-section">
-                <h2>Convenciones del Proceso</h2>
-                <div class="legend-grid">
-                    <div class="legend-item">
-                        <div class="legend-color source"></div>
-                        <span>Captación de agua cruda</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color pretreatment"></div>
-                        <span>Pretratamiento físico</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color coagulation"></div>
-                        <span>Tratamiento químico</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color sedimentation"></div>
-                        <span>Clarificación</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color filtration"></div>
-                        <span>Pulimento</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color disinfection"></div>
-                        <span>Desinfección</span>
-                    </div>
-                </div>
-            </section>
         </div>
     </main>
 
@@ -350,8 +325,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Proyecto Académico</h3>
-                    <p>Desarrollado para el curso de Procesos 2</p>
-                    <p>Universidad - Ingeniería Ambiental</p>
+                    <p>Desarrollado para el curso de Procesos Industriales 2</p>
+                    <p>Universidad de Ibagué - Ingeniería Industrial</p>
                 </div>
                 <div class="footer-section">
                     <h3>Fuentes</h3>
@@ -371,29 +346,6 @@
     </footer>
 
     <!-- UI Components -->
-    <!-- Progress Indicator -->
-    <div class="progress-indicator" id="progressIndicator">
-        <div class="progress-header">
-            <h4>Progreso de Exploración</h4>
-            <button class="progress-close" id="progressClose">&times;</button>
-        </div>
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <div class="progress-info">
-            <span id="visitedCount">0</span>/8 procesos explorados
-        </div>
-        <div class="process-indicators">
-            <span class="process-indicator" data-process="captacion" title="Captación"></span>
-            <span class="process-indicator" data-process="desarenador" title="Desarenador"></span>
-            <span class="process-indicator" data-process="coagulacion" title="Coagulación"></span>
-            <span class="process-indicator" data-process="sedimentacion" title="Sedimentación"></span>
-            <span class="process-indicator" data-process="filtracion" title="Filtración"></span>
-            <span class="process-indicator" data-process="desinfeccion" title="Desinfección"></span>
-            <span class="process-indicator" data-process="almacenamiento" title="Almacenamiento"></span>
-            <span class="process-indicator" data-process="distribucion" title="Distribución"></span>
-        </div>
-    </div>
 
     <!-- Floating Help Button -->
     <button class="floating-help" id="helpButton" title="Ayuda">
@@ -434,6 +386,11 @@
         </div>
     </div>
 
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    
     <!-- Scripts -->
     <script src="js/data/processData.js"></script>
     <script src="js/utils/helpers.js"></script>
@@ -441,6 +398,7 @@
     <script src="js/components/tooltip.js"></script>
     <script src="js/components/progress.js"></script>
     <script src="js/animations/processAnimations.js"></script>
+    <script src="js/components/mapManager.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

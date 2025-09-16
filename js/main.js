@@ -15,7 +15,7 @@ class PTAPApp {
         // Initialize components
         this.modal = null;
         this.tooltip = null;
-        this.progress = null;
+        this.mapManager = null;
         
         // Bind methods
         this.handleProcessClick = this.handleProcessClick.bind(this);
@@ -92,14 +92,15 @@ class PTAPApp {
             this.tooltip = new TooltipManager();
         }
         
-        // Initialize progress tracking
-        if (typeof ProgressManager !== 'undefined') {
-            this.progress = new ProgressManager(this.totalProcesses);
-        }
         
         // Initialize process animations
         if (typeof ProcessAnimations !== 'undefined') {
             this.animations = new ProcessAnimations();
+        }
+        
+        // Initialize map manager
+        if (typeof MapManager !== 'undefined') {
+            this.mapManager = new MapManager();
         }
     }
     
@@ -139,13 +140,6 @@ class PTAPApp {
         // Keyboard navigation
         document.addEventListener('keydown', this.handleKeydown);
         
-        // Progress indicator close button
-        const progressClose = document.getElementById('progressClose');
-        if (progressClose) {
-            progressClose.addEventListener('click', () => {
-                document.getElementById('progressIndicator').classList.add('hidden');
-            });
-        }
         
         // Window resize handler
         window.addEventListener('resize', () => {
@@ -184,15 +178,52 @@ class PTAPApp {
     }
     
     /**
-     * Handle water source clicks in modal
+     * Handle water source clicks in modal (includes SVG markers)
      */
     handleWaterSourceClick(event) {
+        // Handle old CSS-based markers
         if (event.target.classList.contains('water-source')) {
             const source = event.target.dataset.source;
             if (source && waterSourcesData[source]) {
                 const sourceData = waterSourcesData[source];
                 alert(sourceData.details);
             }
+        }
+        
+        // Handle new SVG-based markers
+        let svgMarker = event.target.closest('.water-source-marker');
+        if (svgMarker) {
+            const source = svgMarker.dataset.source;
+            if (source && waterSourcesData[source]) {
+                const sourceData = waterSourcesData[source];
+                this.showSourceTooltip(event, sourceData);
+            }
+        }
+    }
+    
+    /**
+     * Show enhanced tooltip for water sources
+     */
+    showSourceTooltip(event, sourceData) {
+        const tooltipContent = `
+            <div style="max-width: 300px;">
+                <h4 style="margin: 0 0 10px 0; color: #1565C0;">${sourceData.name}</h4>
+                <div style="margin-bottom: 8px;"><strong>Tipo:</strong> ${sourceData.type}</div>
+                <div style="margin-bottom: 8px;"><strong>Caudal:</strong> ${sourceData.flow}</div>
+                <div style="margin-bottom: 8px;"><strong>Ubicación:</strong> ${sourceData.location || 'N/A'}</div>
+                <div style="font-size: 0.9em; color: #666; margin-top: 10px;">${sourceData.details}</div>
+            </div>
+        `;
+        
+        if (this.tooltip) {
+            this.tooltip.show(event, tooltipContent);
+            
+            // Hide tooltip after 5 seconds
+            setTimeout(() => {
+                if (this.tooltip) {
+                    this.tooltip.hide();
+                }
+            }, 5000);
         }
     }
     
@@ -209,10 +240,10 @@ class PTAPApp {
 • Explora el mapa interactivo de fuentes de captación
 • Observa las animaciones de cada proceso
 
-📊 PROGRESO:
-• Sigue tu progreso en el indicador superior derecha
-• Completa los 8 procesos para dominar el sistema
-• Los círculos verdes muestran procesos explorados
+🎯 EXPLORACIÓN:
+• Explora cada proceso para entender el sistema completo
+• Haz clic en cualquier proceso para ver información detallada
+• Descubre las especificaciones técnicas de cada etapa
 
 📋 INFORMACIÓN TÉCNICA:
 • Datos basados en documentación oficial IBAL
@@ -269,17 +300,12 @@ class PTAPApp {
     }
     
     /**
-     * Track visited processes and update progress
+     * Track visited processes
      */
     trackVisitedProcess(processId, processBox) {
         if (!this.visitedProcesses.has(processId)) {
             this.visitedProcesses.add(processId);
             
-            // Update progress if manager is available
-            if (this.progress) {
-                this.progress.updateProgress(this.visitedProcesses.size);
-                this.progress.markProcessVisited(processId);
-            }
             
             // Check for completion
             this.checkCompletion();
@@ -306,6 +332,20 @@ class PTAPApp {
             if (this.animations) {
                 this.animations.startProcessAnimations(processId);
             }
+            
+            // Initialize map for captacion process
+            if (processId === 'captacion' && this.mapManager) {
+                setTimeout(() => {
+                    this.mapManager.initializeMap();
+                }, 100);
+            }
+            
+            // Initialize distribution map for distribucion process
+            if (processId === 'distribucion' && this.mapManager) {
+                setTimeout(() => {
+                    this.mapManager.initializeDistributionMap();
+                }, 100);
+            }
         }, 300);
     }
     
@@ -323,21 +363,62 @@ class PTAPApp {
     }
     
     /**
-     * Get tooltip text for process
+     * Get enhanced tooltip content for process
      */
     getTooltipText(processId) {
         const tooltips = {
-            captacion: 'Río Combeima (1,500 L/s) + Q. Cay (600 L/s) + Q. Chembe (70 L/s)',
-            desarenador: 'Remoción de arenas y sólidos gruesos - Eficiencia >85%',
-            coagulacion: 'Sulfato de Aluminio 15-40 mg/L - TRH 15-20 min',
-            sedimentacion: 'Paneles tipo colmena - Inversión $1,385M (2023)',
-            filtracion: 'Multimedia: Antracita + Arena + Grava - <1.5 NTU',
-            desinfeccion: 'Cloro gaseoso 0.8-2.0 mg/L - TC: 30 min',
-            almacenamiento: 'Capacidad total: 25,000 m³ - Regulación y compensación',
-            distribucion: '10 distritos hidráulicos - 180,000 suscriptores'
+            captacion: {
+                title: 'CAPTACIÓN',
+                description: 'Río Combeima (1,500 L/s) + Q. Cay (600 L/s) + Q. Chembe (70 L/s)',
+                efficiency: 'Suministro total: 2,170 L/s'
+            },
+            desarenador: {
+                title: 'DESARENADOR',
+                description: 'Remoción de arenas y sólidos gruesos',
+                efficiency: 'Eficiencia >85%'
+            },
+            coagulacion: {
+                title: 'COAGULACIÓN-FLOCULACIÓN',
+                description: 'Sulfato de Aluminio 15-40 mg/L',
+                efficiency: 'TRH: 15-20 min'
+            },
+            sedimentacion: {
+                title: 'SEDIMENTACIÓN',
+                description: 'Paneles tipo colmena - Inversión $1,385M (2023)',
+                efficiency: 'TRH: 2-3 horas'
+            },
+            filtracion: {
+                title: 'FILTRACIÓN',
+                description: 'Multimedia: Antracita + Arena + Grava',
+                efficiency: 'Turbiedad <1.5 NTU'
+            },
+            desinfeccion: {
+                title: 'DESINFECCIÓN',
+                description: 'Cloro gaseoso 0.8-2.0 mg/L',
+                efficiency: 'TC: 30 min - 100% eliminación patógenos'
+            },
+            almacenamiento: {
+                title: 'ALMACENAMIENTO',
+                description: 'Capacidad total: 25,000 m³',
+                efficiency: 'Regulación y compensación'
+            },
+            distribucion: {
+                title: 'DISTRIBUCIÓN',
+                description: '10 distritos hidráulicos',
+                efficiency: '180,000 suscriptores'
+            }
         };
         
-        return tooltips[processId] || 'Información del proceso';
+        const tooltipData = tooltips[processId];
+        if (tooltipData) {
+            return `
+                <div class="tooltip-title">${tooltipData.title}</div>
+                <div class="tooltip-description">${tooltipData.description}</div>
+                <div class="tooltip-efficiency">${tooltipData.efficiency}</div>
+            `;
+        }
+        
+        return '<div class="tooltip-description">Información del proceso</div>';
     }
     
     /**
@@ -361,8 +442,8 @@ class PTAPApp {
 Has explorado todos los procesos de la PTAP La Pola.
 Ahora tienes un conocimiento completo del sistema de tratamiento de agua potable.
 
-✅ Procesos completados: ${this.totalProcesses}/${this.totalProcesses}
-📊 Progreso: 100%
+✅ Procesos explorados: ${this.totalProcesses}/${this.totalProcesses}
+🎓 Conocimiento completo del sistema
 
 🎓 ¡Excelente trabajo en tu aprendizaje!
         `;
@@ -440,12 +521,12 @@ Ahora tienes un conocimiento completo del sistema de tratamiento de agua potable
             });
         });
         
-        // Add live region for progress updates
+        // Add live region for accessibility updates
         const liveRegion = document.createElement('div');
         liveRegion.setAttribute('aria-live', 'polite');
         liveRegion.setAttribute('aria-atomic', 'true');
         liveRegion.setAttribute('class', 'sr-only');
-        liveRegion.id = 'progress-live-region';
+        liveRegion.id = 'live-region';
         document.body.appendChild(liveRegion);
     }
     

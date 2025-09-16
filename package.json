@@ -15,7 +15,7 @@
     "deploy": "npm run build && npx gh-pages -d .",
     "lint": "npx eslint js/**/*.js",
     "format": "npx prettier --write \"**/*.{html,css,js,md}\"",
-    "audit": "npm audit && npx lighthouse-ci --collect.numberOfRuns=3"
+    "audit": "npm audit && npx lhci autorun"
   },
   "repository": {
     "type": "git",
@@ -50,7 +50,7 @@
     "html-validate": "^8.15.0",
     "imagemin-cli": "^7.0.0",
     "lighthouse": "^11.7.0",
-    "lighthouse-ci": "^0.12.1",
+    "@lhci/cli": "^0.12.0",
     "live-server": "^1.2.2",
     "prettier": "^3.2.5",
     "serve": "^14.2.1",
