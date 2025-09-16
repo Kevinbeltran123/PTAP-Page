@@ -9,35 +9,103 @@ class ProcessAnimations {
         this.animationIntervals = new Map();
     }
 
+    showYouTubeVideo(videoId, title) {
+        console.log('🎬 Intentando mostrar video:', videoId, title);
+        
+        // Intentar múltiples veces hasta encontrar el modal
+        const tryAddVideo = (attempts = 0) => {
+            const modalContent = document.getElementById('modalContent');
+            console.log('📍 Intento', attempts + 1, '- modalContent encontrado:', !!modalContent);
+            
+            if (modalContent && modalContent.offsetParent !== null) {
+                // Solo eliminar videos anteriores y contenedores de animación visual
+                const existingVideos = modalContent.querySelectorAll('.youtube-video-container, .video-title');
+                existingVideos.forEach(video => video.remove());
+                
+                // Eliminar específicamente los contenedores de animación visual
+                const animationContainers = modalContent.querySelectorAll('.animation-container');
+                animationContainers.forEach(container => container.remove());
+
+                // Crear título del video
+                const videoTitle = document.createElement('h4');
+                videoTitle.className = 'video-title';
+                videoTitle.textContent = '🎥 ' + title;
+                videoTitle.style.cssText = 'color: #1565C0; margin: 20px 0 10px 0; font-size: 18px; text-align: center; font-weight: 600;';
+
+                // Crear contenedor del video
+                const videoContainer = document.createElement('div');
+                videoContainer.className = 'youtube-video-container';
+                videoContainer.style.cssText = 'position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin: 0 0 20px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.15); background: #000;';
+
+                // Crear iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=0&rel=0&modestbranding=1&fs=1';
+                iframe.title = title;
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                iframe.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;';
+
+                videoContainer.appendChild(iframe);
+
+                // Insertar el video al inicio del contenido del modal, manteniendo el resto
+                modalContent.insertBefore(videoTitle, modalContent.firstChild);
+                modalContent.insertBefore(videoContainer, modalContent.children[1]);
+                console.log('✅ Video insertado exitosamente');
+                
+            } else if (attempts < 10) {
+                // Reintentar después de un breve delay
+                setTimeout(() => tryAddVideo(attempts + 1), 200);
+            } else {
+                console.error('❌ No se pudo encontrar modalContent después de 10 intentos');
+            }
+        };
+
+        // Iniciar el proceso
+        tryAddVideo();
+    }
+
     startProcessAnimations(processId) {
+        console.log('🎯 startProcessAnimations llamado para:', processId);
+        
         // Stop any existing animations for this process
         this.stopProcessAnimations(processId);
 
         switch (processId) {
             case 'captacion':
+                console.log('➡️ Ejecutando captacion');
                 this.startCaptacionAnimations();
                 break;
             case 'desarenador':
+                console.log('➡️ Ejecutando desarenador');
                 this.startDesarenadorAnimations();
                 break;
             case 'coagulacion':
+                console.log('➡️ Ejecutando coagulacion');
                 this.startCoagulacionAnimations();
                 break;
             case 'sedimentacion':
+                console.log('➡️ Ejecutando sedimentacion');
                 this.startSedimentacionAnimations();
                 break;
             case 'filtracion':
+                console.log('➡️ Ejecutando filtracion');
                 this.startFiltracionAnimations();
                 break;
             case 'desinfeccion':
+                console.log('➡️ Ejecutando desinfeccion');
                 this.startDesinfeccionAnimations();
                 break;
             case 'almacenamiento':
+                console.log('➡️ Ejecutando almacenamiento');
                 this.startAlmacenamientoAnimations();
                 break;
             case 'distribucion':
+                console.log('➡️ Ejecutando distribucion');
                 this.startDistribucionAnimations();
                 break;
+            default:
+                console.log('❌ ProcessId no reconocido:', processId);
         }
     }
 
@@ -50,226 +118,49 @@ class ProcessAnimations {
     }
 
     startCaptacionAnimations() {
-        // Animate water sources
-        const waterSources = document.querySelectorAll('.water-source');
-        waterSources.forEach((source, index) => {
-            setTimeout(() => {
-                source.style.animation = `waterPulse ${2 + index * 0.5}s ease-in-out infinite`;
-            }, index * 200);
-        });
+        console.log('🏔️ Proceso de captación - No hay animaciones configuradas');
+        // No animations needed for captacion process
     }
 
     startDesarenadorAnimations() {
-        // Animate settling particles
-        const particles = document.querySelectorAll('.settling-particles');
-        particles.forEach((particle, index) => {
-            particle.style.animation = `sandFall ${3 + index * 0.5}s linear infinite`;
-            particle.style.animationDelay = `${index * 0.3}s`;
-        });
+        console.log('🔧 Iniciando animación de desarenador');
+        // Mostrar video educativo sobre desarenación
+        this.showYouTubeVideo('WfQjHYWOdTc', 'Proceso de Desarenación - Tratamiento de Agua');
     }
 
     startCoagulacionAnimations() {
-        const mixingChamber = document.querySelector('.mixing-chamber');
-        if (mixingChamber) {
-            // Add innovative chemical reaction particles
-            const particleCount = 12;
-            
-            // Add water quality improvement demo
-            const waterQualityDemo = document.createElement('div');
-            waterQualityDemo.className = 'water-quality-demo';
-            waterQualityDemo.style.position = 'absolute';
-            waterQualityDemo.style.top = '10px';
-            waterQualityDemo.style.left = '50%';
-            waterQualityDemo.style.transform = 'translateX(-50%)';
-            mixingChamber.appendChild(waterQualityDemo);
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'chemical-particle';
-                particle.style.animationDelay = `${i * 0.2}s`;
-                particle.style.left = `${20 + Math.random() * 60}%`;
-                particle.style.top = `${20 + Math.random() * 60}%`;
-                mixingChamber.appendChild(particle);
-            }
-
-            // Add floating text indicator
-            const qualityIndicator = document.createElement('div');
-            qualityIndicator.innerHTML = '💧→✨';
-            qualityIndicator.style.position = 'absolute';
-            qualityIndicator.style.bottom = '5px';
-            qualityIndicator.style.left = '50%';
-            qualityIndicator.style.transform = 'translateX(-50%)';
-            qualityIndicator.style.fontSize = '14px';
-            qualityIndicator.style.animation = 'bounce 2s infinite';
-            mixingChamber.appendChild(qualityIndicator);
-
-            // Clean up particles after animation
-            setTimeout(() => {
-                const particles = mixingChamber.querySelectorAll('.chemical-particle, .water-quality-demo');
-                particles.forEach(p => {
-                    if (p.parentNode === mixingChamber) {
-                        mixingChamber.removeChild(p);
-                    }
-                });
-            }, 15000);
-        }
+        console.log('🧪 Iniciando animación de coagulación-floculación');
+        // Mostrar video educativo sobre coagulación y floculación
+        this.showYouTubeVideo('YHRqGJx0uEo', 'Coagulación y Floculación en Tratamiento de Agua');
     }
 
     startSedimentacionAnimations() {
-        // Animate hexagonal panels with advanced settling
-        const hexagons = document.querySelectorAll('[style*="clip-path: polygon"]');
-        const container = document.querySelector('.animation-container');
-        
-        if (container) {
-            // Create advanced settling particles
-            for (let i = 0; i < 8; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'advanced-settling-particle';
-                particle.style.left = `${Math.random() * 80 + 10}%`;
-                particle.style.animationDelay = `${i * 0.3}s`;
-                container.appendChild(particle);
-            }
-            
-            // Add sediment accumulation visualization
-            const sedimentLayer = document.createElement('div');
-            sedimentLayer.style.position = 'absolute';
-            sedimentLayer.style.bottom = '0';
-            sedimentLayer.style.left = '0';
-            sedimentLayer.style.right = '0';
-            sedimentLayer.style.height = '0px';
-            sedimentLayer.style.background = 'linear-gradient(to top, #8b4513, rgba(139, 69, 19, 0.5))';
-            sedimentLayer.style.borderRadius = '0 0 10px 10px';
-            sedimentLayer.style.transition = 'height 3s ease-out';
-            container.appendChild(sedimentLayer);
-            
-            // Gradually increase sediment layer
-            setTimeout(() => {
-                sedimentLayer.style.height = '20px';
-            }, 1000);
-        }
-        
-        hexagons.forEach((hex, index) => {
-            setTimeout(() => {
-                hex.style.animation = 'scaleIn 0.5s ease-out';
-                hex.style.transform = 'scale(1.1)';
-                
-                setTimeout(() => {
-                    hex.style.transform = 'scale(1)';
-                }, 500);
-            }, index * 100);
-        });
+        console.log('🏗️ Iniciando animación de sedimentación');
+        // Mostrar video educativo sobre sedimentación
+        this.showYouTubeVideo('Z5OvTdJ7JIE', 'Proceso de Sedimentación en Plantas de Tratamiento');
     }
 
     startFiltracionAnimations() {
-        const filterLayers = document.querySelector('.filter-layers');
-        if (filterLayers) {
-            // Create flowing water particles
-            const createWaterParticle = () => {
-                const particle = document.createElement('div');
-                particle.className = 'water-particles';
-                particle.style.left = `${Math.random() * 90 + 5}%`;
-                particle.style.animationDelay = '0s';
-                filterLayers.appendChild(particle);
-                
-                // Remove particle after animation
-                setTimeout(() => {
-                    if (particle.parentNode === filterLayers) {
-                        filterLayers.removeChild(particle);
-                    }
-                }, 3000);
-            };
-
-            // Create particles at intervals
-            const interval = setInterval(createWaterParticle, 400);
-            this.addAnimationInterval('filtracion', interval);
-
-            // Stop creating particles after 15 seconds
-            setTimeout(() => {
-                clearInterval(interval);
-            }, 15000);
-        }
+        console.log('🏭 Iniciando animación de filtración');
+        // Mostrar video educativo sobre filtración
+        this.showYouTubeVideo('8XEQhVELWz4', 'Sistemas de Filtración en Tratamiento de Agua');
     }
 
     startDesinfeccionAnimations() {
-        const container = document.querySelector('.animation-container');
-        
-        if (container) {
-            // Create bacteria particles that get eliminated
-            for (let i = 0; i < 6; i++) {
-                const bacteria = document.createElement('div');
-                bacteria.className = 'bacteria-particle';
-                bacteria.innerHTML = '🦠';
-                bacteria.style.left = `${Math.random() * 70 + 15}%`;
-                bacteria.style.top = `${Math.random() * 60 + 20}%`;
-                bacteria.style.animationDelay = `${i * 0.5}s`;
-                bacteria.style.fontSize = '12px';
-                container.appendChild(bacteria);
-            }
-            
-            // Add chlorine gas effect
-            const chlorineEffect = document.createElement('div');
-            chlorineEffect.style.position = 'absolute';
-            chlorineEffect.style.top = '0';
-            chlorineEffect.style.left = '0';
-            chlorineEffect.style.right = '0';
-            chlorineEffect.style.bottom = '0';
-            chlorineEffect.style.background = 'radial-gradient(circle, rgba(255, 255, 0, 0.2) 0%, transparent 60%)';
-            chlorineEffect.style.animation = 'pulse 3s ease-in-out infinite';
-            chlorineEffect.style.borderRadius = '10px';
-            container.appendChild(chlorineEffect);
-            
-            // Add success indicator
-            setTimeout(() => {
-                const successIndicator = document.createElement('div');
-                successIndicator.innerHTML = '✅ Agua Segura';
-                successIndicator.style.position = 'absolute';
-                successIndicator.style.bottom = '10px';
-                successIndicator.style.left = '50%';
-                successIndicator.style.transform = 'translateX(-50%)';
-                successIndicator.style.fontSize = '12px';
-                successIndicator.style.fontWeight = 'bold';
-                successIndicator.style.color = '#059669';
-                successIndicator.style.animation = 'fadeIn 2s ease-in-out';
-                container.appendChild(successIndicator);
-            }, 3000);
-        }
-
-        // Animate chlorine injection
-        const chlorineIcon = document.querySelector('[style*="Cl₂"]')?.parentElement;
-        if (chlorineIcon) {
-            chlorineIcon.style.animation = 'pulse 2s infinite';
-        }
-
-        // Animate contact time
-        const contactTime = document.querySelector('[style*="30 min"]');
-        if (contactTime) {
-            contactTime.style.animation = 'fadeIn 2s ease-in-out infinite alternate';
-        }
+        console.log('☢️ Iniciando animación de desinfección');
+        // Mostrar video educativo sobre desinfección
+        this.showYouTubeVideo('dG8QZf1E6es', 'Desinfección del Agua con Cloro - PTAP');
     }
 
     startAlmacenamientoAnimations() {
-        // Animate storage tanks filling
-        const tanks = document.querySelectorAll('[style*="linear-gradient(to bottom, #2196f3"], [style*="linear-gradient(to bottom, #4caf50"]');
-        tanks.forEach((tank, index) => {
-            setTimeout(() => {
-                tank.style.animation = 'floating 3s ease-in-out infinite';
-            }, index * 500);
-        });
+        console.log('🏪 Iniciando animación de almacenamiento');
+        // Mostrar video educativo sobre almacenamiento de agua
+        this.showYouTubeVideo('p4K8YluGWTk', 'Sistemas de Almacenamiento de Agua Tratada');
     }
 
     startDistribucionAnimations() {
-        // Animate distribution districts
-        const districts = document.querySelectorAll('[style*="Distrito"]');
-        districts.forEach((district, index) => {
-            setTimeout(() => {
-                district.style.animation = 'fadeIn 0.5s ease-out';
-                district.style.transform = 'scale(1.05)';
-                
-                setTimeout(() => {
-                    district.style.transform = 'scale(1)';
-                }, 500);
-            }, index * 100);
-        });
+        console.log('🏘️ Proceso de distribución - No hay animaciones configuradas');
+        // No animations needed for distribucion process
     }
 
     addAnimationInterval(processId, interval) {
