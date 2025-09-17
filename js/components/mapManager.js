@@ -16,7 +16,7 @@ class MapManager {
         this.isDistributionInitialized = false;
         this.showDistricts = true;
         
-        // Coordenadas reales basadas en investigación geográfica oficial
+        // Coordenadas reales basadas en investigación geográfica oficial y tabla de macromedidores
         this.locations = {
             ibague: {
                 lat: 4.4386,
@@ -61,6 +61,70 @@ class MapManager {
                 elevation: "1,500-1,700 msnm",
                 location: "Comuna 7",
                 description: "Tributario del río Alvarado, subzona Totare"
+            }
+        };
+        
+        // Macromedidores y puntos de monitoreo según coordenadas oficiales IBAL
+        this.macromedidores = {
+            bocatoma_combeima: {
+                lat: 4.482439,
+                lng: -75.285877,
+                name: "Bocatoma Combeima",
+                tipo: "Captación",
+                medicion: "Macromedición (X2): Sensor Ultrasónico",
+                estado: "Operativo (Estado de arranque y calibración)",
+                caudales: ["27\" = 800 L/s", "24\" = 950 L/s", "20\" = 400 L/s"],
+                punto: "Captación"
+            },
+            bocatoma_cay: {
+                lat: 4.452699425186609,
+                lng: -75.249671150081729,
+                name: "Bocatoma Cay",
+                tipo: "Captación",
+                medicion: "Macromedidor (X1): Electromagnético tipo Carrete",
+                estado: "Operativo",
+                caudales: ["16\" = 522 L/s"],
+                punto: "Captación"
+            },
+            entrada_ptap_1: {
+                lat: 4.452419348535335,
+                lng: -75.249559171399092,
+                name: "PTAP La Pola 1",
+                tipo: "Entrada PTAP",
+                medicion: "Medición por Regleta - Canaleta tipo Parshall - Sensor Ultrasónico de Nivel",
+                estado: "Operativo",
+                caudales: ["Canaleta Parshall = 1356 L/s"],
+                punto: "Entrada PTAP"
+            },
+            entrada_ptap_2: {
+                lat: 4.520908616270454,
+                lng: -75.249490248467684,
+                name: "PTAP La Pola 1",
+                tipo: "Entrada PTAP",
+                medicion: "Macromedición (X1): Sensor Ultrasónico",
+                estado: "Operativo (Estado de arranque y calibración)",
+                caudales: ["16\" = 630 L/s en lavado"],
+                punto: "Entrada PTAP"
+            },
+            entrada_ptap_3: {
+                lat: 4.451242512697746,
+                lng: -75.249353017090992,
+                name: "PTAP La Pola 2",
+                tipo: "Entrada PTAP",
+                medicion: "Medición por Regleta - Perfil de Creager - Sensor Ultrasónico de Nivel",
+                estado: "Operativo",
+                caudales: ["Perfil de Creager = 704 L/s"],
+                punto: "Entrada PTAP"
+            },
+            salida_ptap_chembe: {
+                lat: 4.476374330995315,
+                lng: -75.166013181702978,
+                name: "PTAP Chembe",
+                tipo: "Salida PTAP",
+                medicion: "Macromedidor (X1)",
+                estado: "Operativo",
+                caudales: ["6\" = 65 L/s"],
+                punto: "Salida PTAP"
             }
         };
         
@@ -217,83 +281,79 @@ class MapManager {
     }
     
     /**
-     * Add markers for all water sources and facilities
+     * Add markers for macromedidores only
      */
     addMarkers() {
-        // PTAP La Pola - Planta principal
-        const ptapIcon = L.divIcon({
-            className: 'custom-marker ptap-marker',
-            html: '<div class="marker-icon">🏭</div><div class="marker-label">PTAP La Pola</div>',
-            iconSize: [60, 80],
-            iconAnchor: [30, 70]
+        // Solo agregar macromedidores según coordenadas oficiales IBAL
+        this.addMacromedidores();
+    }
+    
+    /**
+     * Add macromedidores to the map based on official IBAL coordinates
+     */
+    addMacromedidores() {
+        Object.values(this.macromedidores).forEach(macro => {
+            // Determinar icono según el tipo de punto
+            let iconHTML, markerClass;
+            
+            switch (macro.tipo) {
+                case 'Captación':
+                    iconHTML = '<div class="marker-icon">📊</div><div class="marker-label">' + macro.name + '</div>';
+                    markerClass = 'custom-marker macromedidor-captacion';
+                    break;
+                case 'Entrada PTAP':
+                    iconHTML = '<div class="marker-icon">🔍</div><div class="marker-label">' + macro.name + '</div>';
+                    markerClass = 'custom-marker macromedidor-entrada';
+                    break;
+                case 'Salida PTAP':
+                    iconHTML = '<div class="marker-icon">📈</div><div class="marker-label">' + macro.name + '</div>';
+                    markerClass = 'custom-marker macromedidor-salida';
+                    break;
+                default:
+                    iconHTML = '<div class="marker-icon">⚙️</div><div class="marker-label">' + macro.name + '</div>';
+                    markerClass = 'custom-marker macromedidor-general';
+            }
+            
+            // Crear icono del macromedidor
+            const macroIcon = L.divIcon({
+                className: markerClass,
+                html: iconHTML,
+                iconSize: [55, 75],
+                iconAnchor: [27, 65]
+            });
+            
+            // Crear marcador
+            const macroMarker = L.marker([macro.lat, macro.lng], {
+                icon: macroIcon
+            }).addTo(this.map);
+            
+            // Agregar popup con información detallada
+            macroMarker.bindPopup(this.createMacromedidorPopup(macro));
+            this.markers.push(macroMarker);
         });
-        
-        const ptapMarker = L.marker([this.locations.ptap.lat, this.locations.ptap.lng], {
-            icon: ptapIcon
-        }).addTo(this.map);
-        
-        ptapMarker.bindPopup(this.createPopupContent(this.locations.ptap, 'ptap'));
-        this.markers.push(ptapMarker);
-        
-        // Río Combeima - Fuente principal
-        const combeimaIcon = L.divIcon({
-            className: 'custom-marker source-primary',
-            html: '<div class="marker-icon">🏔️</div><div class="marker-label">Río Combeima</div>',
-            iconSize: [50, 70],
-            iconAnchor: [25, 60]
-        });
-        
-        const combeimaMarker = L.marker([this.locations.combeima.lat, this.locations.combeima.lng], {
-            icon: combeimaIcon
-        }).addTo(this.map);
-        
-        combeimaMarker.bindPopup(this.createPopupContent(this.locations.combeima, 'source'));
-        this.markers.push(combeimaMarker);
-        
-        // Quebrada Cay - Fuente secundaria
-        const cayIcon = L.divIcon({
-            className: 'custom-marker source-secondary',
-            html: '<div class="marker-icon">🌊</div><div class="marker-label">Q. Cay</div>',
-            iconSize: [45, 65],
-            iconAnchor: [22, 55]
-        });
-        
-        const cayMarker = L.marker([this.locations.cay.lat, this.locations.cay.lng], {
-            icon: cayIcon
-        }).addTo(this.map);
-        
-        cayMarker.bindPopup(this.createPopupContent(this.locations.cay, 'source'));
-        this.markers.push(cayMarker);
-        
-        // Quebrada Chembe - Fuente menor
-        const chembeIcon = L.divIcon({
-            className: 'custom-marker source-minor',
-            html: '<div class="marker-icon">💧</div><div class="marker-label">Q. Chembe</div>',
-            iconSize: [40, 60],
-            iconAnchor: [20, 50]
-        });
-        
-        const chembeMarker = L.marker([this.locations.chembe.lat, this.locations.chembe.lng], {
-            icon: chembeIcon
-        }).addTo(this.map);
-        
-        chembeMarker.bindPopup(this.createPopupContent(this.locations.chembe, 'source'));
-        this.markers.push(chembeMarker);
-        
-        // Ciudad de Ibagué - Referencia
-        const cityIcon = L.divIcon({
-            className: 'custom-marker city-marker',
-            html: '<div class="marker-icon">🏙️</div><div class="marker-label">Ibagué</div>',
-            iconSize: [50, 70],
-            iconAnchor: [25, 60]
-        });
-        
-        const cityMarker = L.marker([this.locations.ibague.lat, this.locations.ibague.lng], {
-            icon: cityIcon
-        }).addTo(this.map);
-        
-        cityMarker.bindPopup(this.createPopupContent(this.locations.ibague, 'city'));
-        this.markers.push(cityMarker);
+    }
+    
+    /**
+     * Create popup content for macromedidores
+     */
+    createMacromedidorPopup(macro) {
+        return `
+            <div class="map-popup macromedidor-popup">
+                <h3>📊 ${macro.name}</h3>
+                <div class="popup-details">
+                    <p><strong>📍 Punto:</strong> ${macro.punto}</p>
+                    <p><strong>🔧 Tipo:</strong> ${macro.tipo}</p>
+                    <p><strong>📏 Medición:</strong> ${macro.medicion}</p>
+                    <p><strong>⚡ Estado:</strong> ${macro.estado}</p>
+                    <p><strong>💧 Caudales promedio:</strong></p>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        ${macro.caudales.map(caudal => `<li>${caudal}</li>`).join('')}
+                    </ul>
+                    <p><strong>🏢 Operador:</strong> IBAL S.A. ESP</p>
+                    <p><strong>📌 Coordenadas:</strong> ${macro.lat.toFixed(6)}, ${macro.lng.toFixed(6)}</p>
+                </div>
+            </div>
+        `;
     }
     
     /**
