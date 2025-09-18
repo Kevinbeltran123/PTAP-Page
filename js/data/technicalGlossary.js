@@ -52,7 +52,7 @@ const technicalGlossary = {
         term: "Coagulación",
         category: "Tratamiento Químico",
         definition: "Proceso de desestabilización de partículas coloidales mediante la adición de coagulantes químicos para facilitar su posterior aglomeración.",
-        application: "En PTAP La Pola se usa Sulfato de Aluminio (15-40 mg/L) con mezcla rápida",
+        application: "En PTAP La Pola se usa Mackenfloc (15-40 mg/L) con mezcla rápida 1-3 segundos",
         units: "mg/L",
         synonyms: ["coagular"],
         relatedTerms: ["floculación", "sulfato de aluminio", "pH", "alcalinidad"]
@@ -62,17 +62,27 @@ const technicalGlossary = {
         term: "Floculación",
         category: "Tratamiento Químico",
         definition: "Proceso de aglomeración de partículas desestabilizadas en la coagulación para formar flóculos de mayor tamaño y peso.",
-        application: "TRH de 15-20 minutos en PTAP La Pola con gradiente decreciente",
+        application: "TRH de 20-30 minutos en PTAP La Pola con floculadores mecánicos y hidráulicos",
         units: "s⁻¹ (gradiente de velocidad)",
         synonyms: ["flocular"],
         relatedTerms: ["coagulación", "gradiente", "tiempo de retención", "polímeros"]
+    },
+    
+    "mackenfloc": {
+        term: "Mackenfloc",
+        category: "Químicos", 
+        definition: "Coagulante y clarificante químico líquido desarrollado por Quinsa para tratamiento de aguas potables y residuales.",
+        application: "Coagulante principal en PTAP La Pola, dosis 15-40 mg/L, vertido por goteo al resalto hidráulico",
+        units: "mg/L",
+        synonyms: ["coagulante Quinsa"],
+        relatedTerms: ["coagulación", "pH", "turbiedad", "resalto hidráulico"]
     },
     
     "sulfato de aluminio": {
         term: "Sulfato de Aluminio",
         category: "Químicos",
         definition: "Coagulante químico (Al₂(SO₄)₃·18H₂O) que desestabiliza partículas coloidales mediante neutralización de cargas.",
-        application: "Coagulante principal en PTAP La Pola, dosis 15-40 mg/L según turbiedad",
+        application: "Coagulante tradicional, sustituido por Mackenfloc en PTAP La Pola",
         units: "mg/L",
         synonyms: ["alúmbre", "Al₂(SO₄)₃"],
         relatedTerms: ["coagulación", "pH", "alcalinidad", "polímeros"]
@@ -83,7 +93,7 @@ const technicalGlossary = {
         term: "Sedimentación",
         category: "Separación Física",
         definition: "Proceso de separación por gravedad donde los flóculos formados se depositan en el fondo del tanque por su mayor densidad.",
-        application: "PTAP La Pola usa tecnología de paneles tipo colmena para alta eficiencia",
+        application: "PTAP La Pola modernizada con módulos hexagonales de polipropileno alta densidad",
         units: "m/día (velocidad superficial)",
         synonyms: ["clarificación", "decantación"],
         relatedTerms: ["floculación", "paneles colmena", "velocidad superficial", "tiempo de retención"]
@@ -264,6 +274,37 @@ const technicalGlossary = {
         units: "mg/L CaCO₃",
         synonyms: ["capacidad buffer"],
         relatedTerms: ["pH", "dureza", "coagulación", "corrosión"]
+    },
+
+    // Normatividad
+    "resolucion 0330": {
+        term: "Resolución 0330 de 2017",
+        category: "Control de Calidad",
+        definition: "Normativa del Ministerio de Vivienda que establece el Reglamento Técnico para el Sector de Agua Potable y Saneamiento Básico (RAS).",
+        application: "Marco normativo que rige el diseño y operación de PTAP La Pola",
+        units: "N/A",
+        synonyms: ["RAS 2017", "Reglamento Técnico RAS"],
+        relatedTerms: ["decreto 1575", "resolucion 2115", "normatividad"]
+    },
+
+    "decreto 1575": {
+        term: "Decreto 1575 de 2007",
+        category: "Control de Calidad", 
+        definition: "Decreto que establece el Sistema para la Protección y Control de la Calidad del Agua para Consumo Humano en Colombia.",
+        application: "Sistema de vigilancia aplicado por IBAL para garantizar calidad del agua",
+        units: "N/A",
+        synonyms: ["Sistema de protección calidad agua"],
+        relatedTerms: ["resolucion 2115", "irca", "vigilancia"]
+    },
+
+    "resolucion 2115": {
+        term: "Resolución 2115 de 2007",
+        category: "Control de Calidad",
+        definition: "Resolución del Ministerio de Protección Social que señala características, instrumentos básicos y frecuencias del sistema de control y vigilancia para la calidad del agua para consumo humano.",
+        application: "Parámetros de calidad aplicados en PTAP La Pola para cumplimiento IRCA",
+        units: "N/A",
+        synonyms: ["Estándares calidad agua"],
+        relatedTerms: ["irca", "decreto 1575", "calidad del agua"]
     }
 };
 

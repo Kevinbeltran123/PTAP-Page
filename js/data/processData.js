@@ -126,7 +126,7 @@ const processData = {
         content: `
             <div class="animation-container">
                 <div class="coagulation-animation">
-                    <h4>⚗️ Proceso de Coagulación con Sulfato de Aluminio</h4>
+                    <h4>⚗️ Proceso de Coagulación con Mackenfloc</h4>
                     <div style="display: flex; align-items: center; gap: 30px; justify-content: center;">
                         <div class="mixing-chamber" style="width: 100px; height: 100px; border: 3px solid #4facfe; border-radius: 50%; position: relative; overflow: hidden;">
                             <div class="particles" style="animation-delay: 0s;"></div>
@@ -152,15 +152,15 @@ const processData = {
                 <div class="specs-grid">
                     <div class="spec-item">
                         <div class="spec-label">Coagulante Principal</div>
-                        <div class="spec-value">Sulfato de Aluminio (Al₂(SO₄)₃·18H₂O)</div>
+                        <div class="spec-value">Mackenfloc (coagulante químico)</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Dosis Coagulante</div>
                         <div class="spec-value">15-40 mg/L (según turbiedad)</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Ayudante Coagulación</div>
-                        <div class="spec-value">Polímeros catiónicos 0.1-0.5 mg/L</div>
+                        <div class="spec-label">Aplicación</div>
+                        <div class="spec-value">Goteo al resalto hidráulico</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">pH Óptimo</div>
@@ -168,7 +168,7 @@ const processData = {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Tiempo Mezcla Rápida</div>
-                        <div class="spec-value">30-60 segundos</div>
+                        <div class="spec-value">1-3 segundos</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Gradiente Velocidad</div>
@@ -176,7 +176,7 @@ const processData = {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">TRH Floculación</div>
-                        <div class="spec-value">15-20 minutos</div>
+                        <div class="spec-value">20-30 minutos</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Sistema Dosificación</div>
@@ -207,31 +207,31 @@ const processData = {
                 </div>
             </div>
             
-            <p><strong>🎯 Función:</strong> Desestabiliza partículas coloidales y materia orgánica disuelta mediante 
-            neutralización de cargas superficiales, seguido de formación gradual de flóculos con densidad adecuada 
-            para sedimentación eficiente.</p>
+            <p><strong>🎯 Función:</strong> La PTAP La Pola 1 opera con floculadores mecánicos horizontales y verticales con 
+            volumen total de 735,53 m³ por módulo. La Pola 2 usa floculadores hidráulicos con tiempos de retención 
+            extendidos de 25-30 minutos.</p>
             
-            <p><strong>⚙️ Control:</strong> Dosificación continua ajustada según ensayo de jarras diario y variaciones 
-            de turbiedad. Sistema automatizado con sensores de flujo para optimización en tiempo real.</p>
+            <p><strong>⚙️ Control:</strong> Mackenfloc es un líquido marrón oscuro con pH 2.0-3.0, densidad 1,32 g/mL a 20°C. 
+            La dosificación se optimiza mediante variación de gradientes de velocidad según calidad del agua cruda.</p>
         `
     },
 
     sedimentacion: {
-        title: "SEDIMENTACIÓN DE ALTA EFICIENCIA",
-        subtitle: "Tecnología de paneles tipo colmena - Modernización 2023",
+        title: "SEDIMENTACIÓN ACELERADA",
+        subtitle: "Módulos hexagonales de polipropileno - Modernización 2024",
         icon: "🏗️",
         content: `
             <div class="animation-container">
                 <h4>🏗️ Sistema de Paneles Tipo Colmena</h4>
                 <div style="display: flex; justify-content: center; align-items: center; gap: 30px;">
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <div style="font-weight: bold; margin-bottom: 10px;">Configuración Hexagonal</div>
+                        <div style="font-weight: bold; margin-bottom: 10px;">Módulos Hexagonales Polipropileno</div>
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;">
                             ${Array(9).fill().map(() => `
                                 <div style="width: 25px; height: 25px; background: #4caf50; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
                             `).join('')}
                         </div>
-                        <div style="margin-top: 10px; font-size: 0.9em; color: #666;">Láminas inclinadas 60°</div>
+                        <div style="margin-top: 10px; font-size: 0.9em; color: #666;">Reemplazo asbesto-cemento</div>
                     </div>
                     <div style="font-size: 2em;">→</div>
                     <div style="display: flex; flex-direction: column; align-items: center;">
@@ -246,20 +246,20 @@ const processData = {
                 <h4>💰 Inversión y Modernización PTAP No. 1</h4>
                 <div class="specs-grid">
                     <div class="spec-item">
-                        <div class="spec-label">Inversión Total</div>
-                        <div class="spec-value">$1,385 millones (2023)</div>
+                        <div class="spec-label">Proyecto Optimización</div>
+                        <div class="spec-value">PTAP La Pola No.1 (2024)</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Tecnología Instalada</div>
-                        <div class="spec-value">Paneles tipo colmena</div>
+                        <div class="spec-value">Módulos hexagonales alta densidad</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Configuración</div>
-                        <div class="spec-value">Sedimentadores múltiples en paralelo</div>
+                        <div class="spec-label">Mejora Capacidad</div>
+                        <div class="spec-value">Incremento 40% por módulo</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Inclinación Láminas</div>
-                        <div class="spec-value">60° configuración hexagonal</div>
+                        <div class="spec-label">Material Anterior</div>
+                        <div class="spec-value">Módulos asbesto-cemento</div>
                     </div>
                 </div>
             </div>
@@ -273,11 +273,11 @@ const processData = {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Tiempo Retención</div>
-                        <div class="spec-value">2-3 horas</div>
+                        <div class="spec-value">1.5-2 horas optimizado</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Material Tubos</div>
-                        <div class="spec-value">PVC configuración hexagonal</div>
+                        <div class="spec-label">Material Nuevo</div>
+                        <div class="spec-value">Polipropileno alta densidad</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Eficiencia Remoción</div>
@@ -321,20 +321,20 @@ const processData = {
                 <h4>💰 Modernización PTAP No. 2</h4>
                 <div class="specs-grid">
                     <div class="spec-item">
-                        <div class="spec-label">Inversión</div>
-                        <div class="spec-value">$734 millones</div>
+                        <div class="spec-label">Contrato</div>
+                        <div class="spec-value">135 de 2021</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Mejora Principal</div>
-                        <div class="spec-value">Lechos filtrantes con antracita</div>
+                        <div class="spec-value">Recambio completo materiales filtrantes</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Material Antracita</div>
-                        <div class="spec-value">Carbón mineral optimizado</div>
+                        <div class="spec-label">Incluye</div>
+                        <div class="spec-value">Gravas, arena y antracita</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Beneficio</div>
-                        <div class="spec-value">Mejora significativa remoción turbiedad</div>
+                        <div class="spec-label">Mejoras Adicionales</div>
+                        <div class="spec-value">Recubrimiento epóxico + aireación</div>
                     </div>
                 </div>
             </div>
@@ -344,25 +344,25 @@ const processData = {
                 <div class="specs-grid">
                     <div class="spec-item">
                         <div class="spec-label">Velocidad Filtración</div>
-                        <div class="spec-value">120-200 m³/m²/día</div>
+                        <div class="spec-value">3-6 gpm/ft²</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Configuración</div>
-                        <div class="spec-value">Múltiples unidades independientes</div>
+                        <div class="spec-label">La Pola 1</div>
+                        <div class="spec-value">6 filtros x 250 L/s c/u</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Operación</div>
-                        <div class="spec-value">Tasa declinante - Flujo ascendente</div>
+                        <div class="spec-label">Sistema Retrolavado</div>
+                        <div class="spec-value">Agua tanque Belén - 160 L/s</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Turbiedad Efluente</div>
-                        <div class="spec-value"><1.5 NTU</div>
+                        <div class="spec-value"><0.3 NTU</div>
                     </div>
                 </div>
             </div>
             
-            <p><strong>🎯 Función:</strong> La configuración multicapa permite mayor tiempo de contacto y distribución 
-            uniforme del flujo. La antracita como capa superior mejora significativamente la remoción de turbiedad.</p>
+            <p><strong>🎯 Función:</strong> Sistema Leopold de falso fondo garantiza distribución uniforme del retrolavado. 
+            Reducción de 30-60% en tiempo de retrolavado y carreras de filtración >24 horas tras modernización.</p>
         `
     },
 
@@ -409,7 +409,7 @@ const processData = {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Dosis Aplicada</div>
-                        <div class="spec-value">0.8-2.0 mg/L (según demanda)</div>
+                        <div class="spec-value">1-3 mg/L desinfección primaria</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Tiempo Contacto</div>
@@ -417,13 +417,27 @@ const processData = {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Cloro Residual Red</div>
-                        <div class="spec-value">0.3-0.8 mg/L</div>
+                        <div class="spec-value">0.5-1.5 mg/L operativo</div>
                     </div>
                 </div>
             </div>
             
-            <p><strong>🎯 Función:</strong> Representa la barrera final contra contaminación microbiológica, garantizando 
-            inactivación efectiva de microorganismos patógenos mediante mantenimiento de cloro residual libre adecuado.</p>
+            <div class="technical-specs">
+                <h4>⚙️ Equipamiento de Cloración</h4>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Clorinadores</div>
+                        <div class="spec-value">2 unidades de 450 kg/día</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Capacidad Total</div>
+                        <div class="spec-value">900 kg/día combinada</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p><strong>🎯 Función:</strong> Dos clorinadores de 450 kg/día proporcionan desinfección post-filtración. 
+            La modernización de filtros redujo la turbidez de salida, mejorando la eficacia de la desinfección.</p>
         `
     },
 
@@ -482,14 +496,28 @@ const processData = {
                 </div>
             </div>
             
-            <p><strong>🎯 Función:</strong> Proporciona regulación del suministro según variaciones de demanda, 
-            compensación durante mantenimientos y reserva estratégica de emergencia.</p>
+            <div class="technical-specs">
+                <h4>🏭 Control de Calidad</h4>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Laboratorio</div>
+                        <div class="spec-value">Autorizado Res. 229/2024</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Puntos Muestreo</div>
+                        <div class="spec-value">30 concertados con Secretaría</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p><strong>🎯 Función:</strong> Sistema de 13 tanques estratégicamente ubicados proporciona regulación del suministro. 
+            Control de calidad mediante laboratorio autorizado con 30 puntos de muestreo concertados.</p>
         `
     },
 
     distribucion: {
         title: "DISTRIBUCIÓN SECTORIZADA",
-        subtitle: "10 distritos hidráulicos - 180,000 suscriptores",
+        subtitle: "10 distritos hidráulicos - 688.65 km de redes",
         icon: "🏘️",
         content: `
             <div class="water-sources-map">
@@ -526,7 +554,7 @@ const processData = {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Suscriptores Activos</div>
-                        <div class="spec-value">171,000+ usuarios</div>
+                        <div class="spec-value">180,000 acueducto / 176,000 alcant.</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Barrios Atendidos</div>
@@ -534,19 +562,19 @@ const processData = {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Cobertura IBAL</div>
-                        <div class="spec-value">85% población ibaguereña</div>
+                        <div class="spec-value">87-90% ambos servicios</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Tanques de Suministro</div>
                         <div class="spec-value">13 tanques distribuidos</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Capacidad Total</div>
-                        <div class="spec-value">25,000 m³ almacenamiento</div>
+                        <div class="spec-label">Longitud Redes</div>
+                        <div class="spec-value">688.65 km totales</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Sistema de Control</div>
-                        <div class="spec-value">Semaforización inteligente</div>
+                        <div class="spec-label">Continuidad</div>
+                        <div class="spec-value">23.5-24 horas diarias promedio</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Restante</div>
@@ -555,11 +583,33 @@ const processData = {
                 </div>
             </div>
             
-            <p><strong>🎯 Función:</strong> La sectorización hidráulica permite control eficiente del suministro mediante 
-            regulación por distritos y "semaforización" del servicio según demanda, disponibilidad y topografía urbana.</p>
+            <div class="technical-specs">
+                <h4>📊 Calidad del Agua y IRCA</h4>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">IRCA 2023</div>
+                        <div class="spec-value">0-0.9% sin riesgo (mayoría meses)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Episodios Puntuales</div>
+                        <div class="spec-value">8.6% marzo, 7.3% noviembre</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Clasificación Agua</div>
+                        <div class="spec-value">Apta para consumo humano</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Cumplimiento</div>
+                        <div class="spec-value">Frecuencias mínimas Res. 2115/2007</div>
+                    </div>
+                </div>
+            </div>
             
-            <p><strong>⚙️ Control Operativo:</strong> IBAL gestiona 10 distritos hidráulicos con monitoreo continuo de presiones, 
-            calidad del agua y distribución equitativa a través de 13 tanques estratégicamente ubicados.</p>
+            <p><strong>🎯 Función:</strong> IBAL suministra agua apta para consumo con IRCA <5% salvo episodios puntuales. 
+            Control operativo mediante 10 distritos hidráulicos con monitoreo continuo.</p>
+            
+            <p><strong>⚙️ Control de Calidad:</strong> Laboratorio autorizado ejecuta monitoreo antes, durante y después del tratamiento 
+            con muestras diarias en puntos concertados con Secretaría de Salud.</p>
         `
     }
 };

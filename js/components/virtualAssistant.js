@@ -31,10 +31,10 @@ class VirtualAssistant {
                 },
                 coagulacion: {
                     name: "Coagulación-Floculación",
-                    description: "Desestabilización y aglomeración de partículas coloidales",
-                    chemical: "Sulfato de Aluminio (15-40 mg/L)",
-                    time: "15-20 minutos",
-                    keywords: ["coagulacion", "floculacion", "sulfato", "aluminio", "quimicos"]
+                    description: "Desestabilización y aglomeración de partículas coloidales usando Mackenfloc",
+                    chemical: "Mackenfloc (15-40 mg/L)",
+                    time: "20-30 minutos",
+                    keywords: ["coagulacion", "floculacion", "mackenfloc", "quinsa", "quimicos"]
                 },
                 sedimentacion: {
                     name: "Sedimentación",
@@ -54,8 +54,9 @@ class VirtualAssistant {
                 desinfeccion: {
                     name: "Desinfección",
                     description: "Barrera final contra contaminación microbiológica",
-                    chemical: "Cloro gaseoso (0.8-2.0 mg/L)",
+                    chemical: "Cloro gaseoso (1-3 mg/L)",
                     contact_time: "30 minutos mínimo",
+                    consumption: "450 kg/día x2 cilindros",
                     keywords: ["desinfeccion", "cloro", "microbiologico", "patogenos"]
                 },
                 almacenamiento: {
@@ -70,8 +71,105 @@ class VirtualAssistant {
                     description: "10 distritos hidráulicos",
                     districts: 10,
                     subscribers: "179,547 suscriptores",
-                    coverage: "85% población ibaguereña",
+                    coverage: "87-90% población ibaguereña",
                     keywords: ["distribucion", "distritos", "suscriptores", "cobertura"]
+                }
+            },
+            
+            // Normatividad Colombiana
+            regulations: {
+                resolution_0330: {
+                    name: "Resolución 0330 de 2017",
+                    entity: "Ministerio de Vivienda, Ciudad y Territorio",
+                    description: "Reglamento Técnico para el Sector de Agua Potable y Saneamiento Básico (RAS)",
+                    scope: "Establece criterios básicos y requisitos mínimos que deben cumplir los proyectos del sector",
+                    application: "Marco normativo que rige el diseño y operación de PTAP La Pola",
+                    keywords: ["ras", "resolucion 0330", "normatividad", "diseno", "operacion"]
+                },
+                decree_1575: {
+                    name: "Decreto 1575 de 2007",
+                    entity: "Ministerio de Protección Social",
+                    description: "Sistema para la Protección y Control de la Calidad del Agua para Consumo Humano",
+                    scope: "Establece el sistema de vigilancia y control de calidad del agua",
+                    application: "Sistema de vigilancia aplicado por IBAL para garantizar calidad del agua",
+                    keywords: ["decreto 1575", "proteccion", "control", "vigilancia", "calidad"]
+                },
+                resolution_2115: {
+                    name: "Resolución 2115 de 2007",
+                    entity: "Ministerio de Protección Social y Ministerio de Ambiente",
+                    description: "Características, instrumentos básicos y frecuencias del sistema de control y vigilancia",
+                    scope: "Define parámetros físicos, químicos y microbiológicos del agua potable",
+                    parameters: ["pH: 6.5-9.0", "Turbiedad: <2 NTU", "Cloro residual: 0.3-2.0 mg/L", "Coliformes totales: 0 UFC/100mL"],
+                    application: "Parámetros de calidad aplicados en PTAP La Pola para cumplimiento IRCA",
+                    keywords: ["resolucion 2115", "parametros", "irca", "calidad", "estandares"]
+                }
+            },
+            
+            // Historia y Contexto de IBAL
+            ibal_info: {
+                history: {
+                    name: "Historia de IBAL",
+                    foundation: "Empresa Ibaguereña de Acueducto y Alcantarillado",
+                    legal_nature: "Sociedad Anónima - Empresa de Servicios Públicos (S.A. E.S.P.)",
+                    mission: "Prestación de servicios de acueducto y alcantarillado en Ibagué",
+                    coverage_aqueduct: "87-90% ambos servicios en zona urbana",
+                    subscribers_total: "179,547 suscriptores de acueducto",
+                    keywords: ["ibal", "historia", "empresa", "servicios publicos", "ibague"]
+                },
+                modernization: {
+                    name: "Modernización PTAP La Pola",
+                    total_investment: "$2,119 millones",
+                    year: "2023-2024",
+                    improvements: [
+                        "Sedimentadores con módulos hexagonales ($1,385 M)",
+                        "Filtros multimedia modernizados ($734 M)",
+                        "Sistema de control automatizado",
+                        "Optimización hidráulica"
+                    ],
+                    impact: "Mejora en eficiencia de remoción y estabilidad operativa",
+                    keywords: ["modernizacion", "inversion", "mejoras", "eficiencia"]
+                },
+                quality_control: {
+                    name: "Control de Calidad",
+                    laboratory: "Laboratorio autorizado por IDEAM",
+                    irca_status: "IRCA declarado 0.0% (sin riesgo) mayoría de meses 2023",
+                    monitoring: "Monitoreo continuo en 10 distritos hidráulicos",
+                    parameters: "Cumplimiento Resolución 2115/2007",
+                    certifications: "Laboratorio acreditado para análisis físico-químicos y microbiológicos",
+                    keywords: ["laboratorio", "irca", "monitoreo", "calidad", "ideam"]
+                }
+            },
+            
+            // Conceptos Técnicos Adicionales
+            technical_concepts: {
+                water_importance: {
+                    name: "Importancia del Tratamiento de Agua",
+                    context: "Acceso a agua potable como derecho fundamental en Colombia",
+                    health_impact: "Prevención de enfermedades hídricas y mejora de calidad de vida",
+                    environmental: "Protección de recursos hídricos y sostenibilidad",
+                    economic: "Desarrollo económico y social de comunidades",
+                    keywords: ["importancia", "salud", "derecho", "sostenibilidad"]
+                },
+                irca_system: {
+                    name: "Sistema IRCA",
+                    full_name: "Índice de Riesgo de la Calidad del Agua",
+                    classification: [
+                        "Sin riesgo: 0-5%",
+                        "Riesgo bajo: 5.1-14%", 
+                        "Riesgo medio: 14.1-35%",
+                        "Riesgo alto: 35.1-80%",
+                        "Riesgo inviable: 80.1-100%"
+                    ],
+                    ptap_status: "PTAP La Pola mantiene 0-0.9% (sin riesgo) en mayoría de meses",
+                    keywords: ["irca", "riesgo", "clasificacion", "calidad", "indice"]
+                },
+                hexagonal_modules: {
+                    name: "Módulos Hexagonales de Sedimentación",
+                    technology: "Polipropileno de alta densidad",
+                    function: "Incremento del área superficial específica",
+                    benefits: ["Mayor eficiencia de sedimentación", "Reducción de tiempo de retención", "Optimización de espacio"],
+                    investment_year: "2023 - $1,385 millones",
+                    keywords: ["hexagonales", "sedimentacion", "polipropileno", "eficiencia"]
                 }
             },
             
@@ -112,13 +210,13 @@ class VirtualAssistant {
                     "¡Hola! Soy tu guía para conocer todo sobre la Planta de Tratamiento La Pola."
                 ],
                 help: [
-                    "Puedo ayudarte con:\n• Información sobre procesos de tratamiento\n• Datos de tanques y capacidades\n• Estadísticas de distritos hidráulicos\n• 📚 Glosario técnico especializado\n• Explicaciones técnicas\n• Navegación por la aplicación\n\n💡 Tip: Escribe '/glosario' para explorar términos técnicos",
-                    "Pregúntame sobre cualquier proceso de la PTAP, capacidades de tanques, distritos hidráulicos o términos técnicos específicos.\n\n📖 ¿Sabías que tengo un glosario técnico completo? Prueba escribiendo '/glosario [término]'"
+                    "Puedo ayudarte con:\n• Información sobre procesos de tratamiento\n• Datos de tanques y capacidades\n• Estadísticas de distritos hidráulicos\n• 📚 Glosario técnico especializado\n• 📋 Normatividad colombiana (RAS, IRCA, etc.)\n• 🏢 Historia y modernización de IBAL\n• 💧 Importancia del tratamiento de agua\n• Explicaciones técnicas\n\n💡 Tip: Escribe '/glosario' para explorar términos técnicos",
+                    "Pregúntame sobre cualquier proceso de la PTAP, normatividad colombiana, historia de IBAL, modernización, capacidades de tanques, distritos hidráulicos o términos técnicos específicos.\n\n📖 ¿Sabías que tengo información completa sobre las regulaciones colombianas? Prueba preguntando sobre la Resolución 0330 o el sistema IRCA."
                 ],
                 unknown: [
-                    "No estoy seguro de esa información específica. ¿Podrías reformular tu pregunta?\n\n💡 Tip: Si es un término técnico, prueba '/glosario [término]'",
-                    "Hmm, no tengo esa información exacta. Prueba preguntando sobre procesos, tanques, distritos hidráulicos o consultando el glosario técnico.",
-                    "No encontré información sobre eso. ¿Te interesa saber sobre algún proceso específico de tratamiento o consultar algún término técnico?"
+                    "No estoy seguro de esa información específica. ¿Podrías reformular tu pregunta?\n\n💡 Prueba estas sugerencias:\n📋 Normatividad: \"¿Qué es el RAS?\"\n🏢 IBAL: \"Historia de IBAL\"\n💧 Procesos: \"¿Cómo funciona la coagulación?\"\n🧪 Calidad: \"¿Qué es el IRCA?\"\n🏗️ Infraestructura: \"Muéstrame los tanques\"",
+                    "Hmm, no tengo esa información exacta. Aquí tienes algunas sugerencias:\n\n• \"Háblame sobre la normatividad\"\n• \"¿Cuál es la historia de IBAL?\"\n• \"¿Qué son los módulos hexagonales?\"\n• \"Parámetros de calidad del agua\"\n• \"¿Cuántos distritos hidráulicos hay?\"\n• \"/glosario [término técnico]\"",
+                    "No encontré información sobre eso. ¿Te interesa alguno de estos temas?\n\n🔹 Marco normativo colombiano\n🔹 Modernización de PTAP La Pola\n🔹 Procesos de tratamiento\n🔹 Control de calidad (IRCA)\n🔹 Sistema de distribución\n🔹 Glosario técnico especializado"
                 ]
             }
         };
@@ -164,10 +262,10 @@ class VirtualAssistant {
             </div>
             <div class="chat-input-container">
                 <div class="quick-actions">
-                    <button class="quick-btn" data-query="¿Cómo funciona la coagulación?">Coagulación</button>
-                    <button class="quick-btn" data-query="Muéstrame los tanques">Tanques</button>
+                    <button class="quick-btn" data-query="¿Cómo funciona la coagulación?">Procesos</button>
+                    <button class="quick-btn" data-query="Háblame sobre la normatividad">📋 Normativa</button>
+                    <button class="quick-btn" data-query="Historia de IBAL">🏢 IBAL</button>
                     <button class="quick-btn" data-query="/glosario">📚 Glosario</button>
-                    <button class="quick-btn" data-query="¿Cuántos distritos hay?">Distritos</button>
                 </div>
                 <div class="input-area">
                     <input type="text" id="chatInput" placeholder="Escribe tu pregunta aquí..." maxlength="200">
@@ -260,7 +358,7 @@ class VirtualAssistant {
         this.scrollToBottom();
     }
     
-    addAssistantMessage(message, isTyping = true) {
+    addAssistantMessage(message, isTyping = true, showSuggestions = false) {
         const messagesContainer = document.getElementById('chatMessages');
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message assistant-message';
@@ -278,20 +376,81 @@ class VirtualAssistant {
             
             // Simulate typing delay
             setTimeout(() => {
+                const content = this.formatMessageWithSuggestions(message);
                 messageDiv.innerHTML = `
-                    <div class="message-content">${message}</div>
+                    <div class="message-content">${content}</div>
                     <div class="message-time">${this.getCurrentTime()}</div>
                 `;
+                
+                // Add click listeners for suggestion buttons
+                this.attachSuggestionListeners(messageDiv);
                 this.scrollToBottom();
             }, 1000 + Math.random() * 1000);
         } else {
+            const content = this.formatMessageWithSuggestions(message);
             messageDiv.innerHTML = `
-                <div class="message-content">${message}</div>
+                <div class="message-content">${content}</div>
                 <div class="message-time">${this.getCurrentTime()}</div>
             `;
             messagesContainer.appendChild(messageDiv);
+            
+            // Add click listeners for suggestion buttons
+            this.attachSuggestionListeners(messageDiv);
             this.scrollToBottom();
         }
+    }
+    
+    formatMessageWithSuggestions(message) {
+        // Check if message contains suggestions and convert them to clickable buttons
+        if (message.includes('💡 Sugerencias sobre') || message.includes('💡 Prueba estas sugerencias')) {
+            return this.addSuggestionButtons(message);
+        }
+        return message;
+    }
+    
+    addSuggestionButtons(message) {
+        // Extract suggestions in quotes and make them clickable
+        let formattedMessage = message;
+        
+        // Find suggestions in quotes and replace with buttons
+        const suggestionRegex = /"([^"]+)"/g;
+        let match;
+        const suggestions = [];
+        
+        while ((match = suggestionRegex.exec(message)) !== null) {
+            suggestions.push(match[1]);
+        }
+        
+        if (suggestions.length > 0) {
+            formattedMessage += '\n\n<div class="suggestion-buttons">';
+            suggestions.forEach((suggestion, index) => {
+                formattedMessage += `<button class="suggestion-btn" data-suggestion="${suggestion}" style="
+                    margin: 2px;
+                    padding: 4px 8px;
+                    background: #e3f2fd;
+                    border: 1px solid #2196f3;
+                    border-radius: 12px;
+                    color: #1976d2;
+                    font-size: 11px;
+                    cursor: pointer;
+                    display: inline-block;
+                ">${suggestion}</button>`;
+            });
+            formattedMessage += '</div>';
+        }
+        
+        return formattedMessage;
+    }
+    
+    attachSuggestionListeners(messageDiv) {
+        const suggestionBtns = messageDiv.querySelectorAll('.suggestion-btn');
+        suggestionBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const suggestion = e.target.dataset.suggestion;
+                document.getElementById('chatInput').value = suggestion;
+                this.sendMessage();
+            });
+        });
     }
     
     processQuery(query) {
@@ -314,18 +473,14 @@ class VirtualAssistant {
         else if (this.matchesKeywords(normalizedQuery, ['ayuda', 'help', 'que puedes', 'como funciona'])) {
             response = this.getRandomResponse('help');
         }
-        // Glossary search (detect technical terms)
-        else if (this.detectTechnicalTerm(normalizedQuery)) {
-            response = this.searchGlossaryTerm(normalizedQuery);
-        }
-        // Process-specific queries
+        // Process-specific queries (prioritize over glossary)
         else if (this.matchesKeywords(normalizedQuery, ['captacion', 'fuentes', 'combeima', 'cay', 'chembe'])) {
             response = this.getProcessInfo('captacion');
         }
         else if (this.matchesKeywords(normalizedQuery, ['desarenador', 'arenas', 'pretratamiento'])) {
             response = this.getProcessInfo('desarenador');
         }
-        else if (this.matchesKeywords(normalizedQuery, ['coagulacion', 'floculacion', 'sulfato', 'aluminio'])) {
+        else if (this.matchesKeywords(normalizedQuery, ['coagulacion', 'floculacion', 'mackenfloc', 'quinsa'])) {
             response = this.getProcessInfo('coagulacion');
         }
         else if (this.matchesKeywords(normalizedQuery, ['sedimentacion', 'colmena', 'paneles'])) {
@@ -351,9 +506,29 @@ class VirtualAssistant {
         else if (this.matchesKeywords(normalizedQuery, ['distrito', 'dh1', 'dh2', 'dh3', 'dh4', 'dh5', 'dh6', 'dh7', 'dh8', 'dh9', 'dh10'])) {
             response = this.searchDistricts(normalizedQuery);
         }
+        // Normatividad queries
+        else if (this.matchesKeywords(normalizedQuery, ['normatividad', 'normativa', 'regulacion', 'ras', 'resolucion', 'decreto', 'que es el ras', 'que es ras'])) {
+            response = this.getRegulationInfo(normalizedQuery);
+        }
+        // IBAL history and modernization
+        else if (this.matchesKeywords(normalizedQuery, ['ibal', 'historia', 'empresa', 'modernizacion', 'inversion'])) {
+            response = this.getIBALInfo(normalizedQuery);
+        }
+        // Water treatment importance
+        else if (this.matchesKeywords(normalizedQuery, ['importancia', 'por que', 'derecho', 'salud', 'agua potable'])) {
+            response = this.getWaterImportanceInfo();
+        }
+        // IRCA system
+        else if (this.matchesKeywords(normalizedQuery, ['irca', 'indice', 'riesgo', 'calidad'])) {
+            response = this.getIRCAInfo();
+        }
         // Calculation queries
         else if (this.matchesKeywords(normalizedQuery, ['total', 'suma', 'cuanto', 'cuantos'])) {
             response = this.handleCalculations(normalizedQuery);
+        }
+        // Glossary search (only if no specific match found)
+        else if (this.detectTechnicalTerm(normalizedQuery)) {
+            response = this.searchGlossaryTerm(normalizedQuery);
         }
         // Default response
         else {
@@ -385,6 +560,9 @@ class VirtualAssistant {
         }
         if (process.capacity) {
             info += `<strong>Capacidad:</strong> ${process.capacity}`;
+        }
+        if (process.consumption) {
+            info += `<strong>Consumo:</strong> ${process.consumption}`;
         }
         
         return info;
@@ -471,6 +649,150 @@ class VirtualAssistant {
         }
         
         return "¿Qué te gustaría calcular? Puedo sumar capacidades de tanques, suscriptores, o contar procesos.";
+    }
+    
+    // NEW METHODS FOR REGULATIONS AND IBAL INFO
+    
+    getRegulationInfo(query) {
+        const normalizedQuery = query.toLowerCase();
+        
+        // Specific regulation queries
+        if (this.matchesKeywords(normalizedQuery, ['0330', 'ras', 'reglamento técnico'])) {
+            return this.formatRegulationInfo('resolution_0330');
+        }
+        else if (this.matchesKeywords(normalizedQuery, ['1575', 'protección', 'sistema'])) {
+            return this.formatRegulationInfo('decree_1575');
+        }
+        else if (this.matchesKeywords(normalizedQuery, ['2115', 'características', 'parámetros'])) {
+            return this.formatRegulationInfo('resolution_2115');
+        }
+        
+        // General normatividad overview
+        let info = `<strong>📋 Marco Normativo Colombiano - Agua Potable</strong>\n\n`;
+        info += `Colombia cuenta con un robusto marco normativo para garantizar la calidad del agua potable:\n\n`;
+        
+        info += `<strong>🔹 Resolución 0330 de 2017 (RAS)</strong>\n`;
+        info += `Ministerio de Vivienda - Reglamento Técnico del Sector\n\n`;
+        
+        info += `<strong>🔹 Decreto 1575 de 2007</strong>\n`;
+        info += `Sistema de Protección y Control de Calidad\n\n`;
+        
+        info += `<strong>🔹 Resolución 2115 de 2007</strong>\n`;
+        info += `Parámetros y frecuencias de vigilancia\n\n`;
+        
+        info += `💡 Pregunta por una norma específica para obtener detalles completos.`;
+        
+        return info;
+    }
+    
+    formatRegulationInfo(regulationKey) {
+        const reg = this.knowledgeBase.regulations[regulationKey];
+        
+        let info = `<strong>📋 ${reg.name}</strong>\n`;
+        info += `<em>Entidad: ${reg.entity}</em>\n\n`;
+        info += `<strong>Descripción:</strong>\n${reg.description}\n\n`;
+        info += `<strong>Alcance:</strong>\n${reg.scope}\n\n`;
+        
+        if (reg.parameters) {
+            info += `<strong>Parámetros principales:</strong>\n`;
+            reg.parameters.forEach(param => {
+                info += `• ${param}\n`;
+            });
+            info += `\n`;
+        }
+        
+        info += `<strong>🏭 Aplicación en PTAP La Pola:</strong>\n${reg.application}`;
+        
+        return info;
+    }
+    
+    getIBALInfo(query) {
+        const normalizedQuery = query.toLowerCase();
+        
+        // Specific IBAL queries
+        if (this.matchesKeywords(normalizedQuery, ['modernizacion', 'inversion', 'mejoras'])) {
+            return this.getModernizationInfo();
+        }
+        else if (this.matchesKeywords(normalizedQuery, ['laboratorio', 'control', 'calidad', 'ideam'])) {
+            return this.getQualityControlInfo();
+        }
+        
+        // General IBAL info
+        const ibal = this.knowledgeBase.ibal_info.history;
+        
+        let info = `<strong>🏢 ${ibal.name}</strong>\n\n`;
+        info += `<strong>Razón Social:</strong> ${ibal.foundation}\n`;
+        info += `<strong>Naturaleza Jurídica:</strong> ${ibal.legal_nature}\n\n`;
+        info += `<strong>Misión:</strong>\n${ibal.mission}\n\n`;
+        info += `<strong>📊 Indicadores Clave:</strong>\n`;
+        info += `• Cobertura: ${ibal.coverage_aqueduct}\n`;
+        info += `• Suscriptores: ${ibal.subscribers_total}\n\n`;
+        info += `💡 Pregunta sobre "modernización" o "control de calidad" para más detalles específicos.`;
+        
+        return info;
+    }
+    
+    getModernizationInfo() {
+        const mod = this.knowledgeBase.ibal_info.modernization;
+        
+        let info = `<strong>🚀 ${mod.name}</strong>\n\n`;
+        info += `<strong>Período:</strong> ${mod.year}\n`;
+        info += `<strong>Inversión Total:</strong> ${mod.total_investment}\n\n`;
+        info += `<strong>Mejoras Implementadas:</strong>\n`;
+        mod.improvements.forEach(improvement => {
+            info += `• ${improvement}\n`;
+        });
+        info += `\n<strong>Impacto:</strong>\n${mod.impact}\n\n`;
+        
+        // Add hexagonal modules detail
+        const hex = this.knowledgeBase.technical_concepts.hexagonal_modules;
+        info += `<strong>🔹 Detalle Módulos Hexagonales:</strong>\n`;
+        info += `• Material: ${hex.technology}\n`;
+        info += `• Función: ${hex.function}\n`;
+        info += `• Inversión: ${hex.investment_year}`;
+        
+        return info;
+    }
+    
+    getQualityControlInfo() {
+        const qc = this.knowledgeBase.ibal_info.quality_control;
+        
+        let info = `<strong>🔬 ${qc.name}</strong>\n\n`;
+        info += `<strong>Laboratorio:</strong> ${qc.laboratory}\n`;
+        info += `<strong>Certificaciones:</strong> ${qc.certifications}\n\n`;
+        info += `<strong>Estado IRCA:</strong>\n${qc.irca_status}\n\n`;
+        info += `<strong>Monitoreo:</strong> ${qc.monitoring}\n`;
+        info += `<strong>Cumplimiento:</strong> ${qc.parameters}`;
+        
+        return info;
+    }
+    
+    getWaterImportanceInfo() {
+        const importance = this.knowledgeBase.technical_concepts.water_importance;
+        
+        let info = `<strong>💧 ${importance.name}</strong>\n\n`;
+        info += `<strong>Contexto Legal:</strong>\n${importance.context}\n\n`;
+        info += `<strong>🏥 Impacto en Salud:</strong>\n${importance.health_impact}\n\n`;
+        info += `<strong>🌱 Impacto Ambiental:</strong>\n${importance.environmental}\n\n`;
+        info += `<strong>💰 Impacto Económico:</strong>\n${importance.economic}\n\n`;
+        info += `En Colombia, el acceso a agua potable es un derecho fundamental constitucional, y empresas como IBAL garantizan este derecho a través de sistemas como PTAP La Pola.`;
+        
+        return info;
+    }
+    
+    getIRCAInfo() {
+        const irca = this.knowledgeBase.technical_concepts.irca_system;
+        
+        let info = `<strong>📊 ${irca.name}</strong>\n`;
+        info += `<em>${irca.full_name}</em>\n\n`;
+        info += `<strong>Clasificación del Riesgo:</strong>\n`;
+        irca.classification.forEach(level => {
+            info += `• ${level}\n`;
+        });
+        info += `\n<strong>🏭 Estado PTAP La Pola:</strong>\n${irca.ptap_status}\n\n`;
+        info += `El IRCA es una herramienta fundamental para evaluar la calidad del agua suministrada a la población, establecida por la Resolución 2115 de 2007.`;
+        
+        return info;
     }
     
     matchesKeywords(query, keywords) {
@@ -568,7 +890,7 @@ class VirtualAssistant {
         const results = this.performGlossarySearch(query);
         
         if (results.length === 0) {
-            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias:\n• Verifica la ortografía\n• Prueba con sinónimos\n• Usa /categorias para explorar temas\n• Escribe términos como: turbiedad, coagulación, pH, caudal`;
+            return this.getSuggestionsForQuery(query);
         }
         
         if (results.length === 1) {
@@ -594,12 +916,17 @@ class VirtualAssistant {
         // Fallback local glossary when external file not loaded
         const localTerms = {
             "turbiedad": "Medida de la claridad del agua, expresada por la cantidad de partículas suspendidas. En PTAP La Pola, valores >12,000 NTU activan suspensión automática.",
-            "coagulacion": "Proceso de desestabilización de partículas coloidales mediante sulfato de aluminio (15-40 mg/L) en PTAP La Pola.",
+            "coagulacion": "Proceso de desestabilización de partículas coloidales mediante Mackenfloc (15-40 mg/L) en PTAP La Pola.",
+            "mackenfloc": "Coagulante y clarificante químico líquido desarrollado por Quinsa para tratamiento de aguas potables y residuales. Dosis 15-40 mg/L en PTAP La Pola.",
             "ph": "Medida de acidez o alcalinidad del agua. Rango óptimo 6.5-8.5 en agua cruda, 6.5-8.0 en agua tratada.",
             "caudal": "Volumen de agua que pasa por una sección en la unidad de tiempo. PTAP La Pola maneja 2,170 L/s de capacidad total.",
             "cloro residual": "Cantidad de cloro libre disponible después de la desinfección. PTAP La Pola mantiene 0.3-0.8 mg/L en red.",
-            "irca": "Índice de Riesgo de la Calidad del Agua. PTAP La Pola mantiene IRCA declarado de 0.0% (sin riesgo).",
-            "macromedidor": "Equipo de medición de caudal de gran diámetro. PTAP La Pola tiene 6 macromedidores en captaciones y entradas."
+            "irca": "Índice de Riesgo de la Calidad del Agua para consumo humano. PTAP La Pola mantiene IRCA declarado de 0.0% (sin riesgo) mayoría de meses 2023.",
+            "macromedidor": "Equipo de medición de caudal de gran diámetro. PTAP La Pola tiene 6 macromedidores en captaciones y entradas.",
+            "ras": "Reglamento Técnico para el Sector de Agua Potable y Saneamiento Básico, establecido por Resolución 0330 de 2017.",
+            "modulos hexagonales": "Tecnología de polipropileno de alta densidad para sedimentación acelerada. Inversión $1,385 millones en PTAP La Pola (2023).",
+            "resolucion 2115": "Resolución que establece características, instrumentos básicos y frecuencias del sistema de control y vigilancia para la calidad del agua potable.",
+            "decreto 1575": "Decreto que establece el Sistema para la Protección y Control de la Calidad del Agua para Consumo Humano en Colombia."
         };
         
         const normalizedQuery = query.toLowerCase();
@@ -621,7 +948,7 @@ class VirtualAssistant {
             return response;
         }
         
-        return `❓ No encontré el término "${query}" en el glosario básico.\n\n💡 Términos disponibles: turbiedad, coagulación, pH, caudal, cloro residual, IRCA, macromedidor`;
+        return `❓ No encontré el término "${query}" en el glosario básico.\n\n💡 Términos disponibles: turbiedad, coagulación, mackenfloc, pH, caudal, cloro residual, IRCA, macromedidor, RAS, módulos hexagonales, resolución 2115, decreto 1575`;
     }
     
     performGlossarySearch(query) {
@@ -672,16 +999,69 @@ class VirtualAssistant {
     }
     
     detectTechnicalTerm(query) {
-        const technicalKeywords = [
-            'turbiedad', 'ph', 'caudal', 'coagulacion', 'floculacion', 'sedimentacion',
-            'filtracion', 'desinfeccion', 'cloro', 'aluminio', 'bocatoma', 'macromedidor',
-            'irca', 'coliformes', 'alcalinidad', 'antracita', 'retrolavado', 'distrito',
-            'tanque', 'capacidad', 'ntu', 'mg/l', 'ppm', 'tiempo de retencion'
+        // Only detect specific technical terms that are likely to be in the glossary
+        const specificTechnicalTerms = [
+            'turbiedad', 'ph', 'coagulacion', 'floculacion', 'sedimentacion',
+            'filtracion', 'desinfeccion', 'mackenfloc', 'bocatoma', 'macromedidor',
+            'coliformes', 'alcalinidad', 'antracita', 'retrolavado',
+            'ntu', 'mg/l', 'ppm', 'tiempo de retencion', 'modulos hexagonales',
+            'polipropileno', 'ideam'
         ];
         
-        return technicalKeywords.some(keyword => 
+        // Don't treat as technical term if it's a conversational question
+        if (query.toLowerCase().includes('que es') || query.toLowerCase().includes('qué es') || 
+            query.toLowerCase().includes('como') || query.toLowerCase().includes('cómo') ||
+            query.toLowerCase().includes('hablame') || query.toLowerCase().includes('háblame') ||
+            query.toLowerCase().includes('explica') || query.toLowerCase().includes('cuanto') ||
+            query.toLowerCase().includes('historia') || query.toLowerCase().includes('porque')) {
+            return false;
+        }
+        
+        return specificTechnicalTerms.some(keyword => 
             query.toLowerCase().includes(keyword)
         );
+    }
+    
+    getSuggestionsForQuery(query) {
+        const normalizedQuery = query.toLowerCase();
+        
+        // Normatividad suggestions
+        if (this.matchesKeywords(normalizedQuery, ['normatividad', 'normativa', 'regulacion', 'ley', 'decreto', 'resolucion'])) {
+            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias sobre Normatividad:\n• "¿Qué es la Resolución 0330?"\n• "Háblame del Decreto 1575"\n• "¿Qué parámetros establece la Resolución 2115?"\n• "¿Qué es el RAS?"\n• "Marco normativo colombiano"\n• "Normatividad agua potable"\n\n🔍 También puedes usar: /glosario RAS`;
+        }
+        
+        // IBAL history suggestions
+        if (this.matchesKeywords(normalizedQuery, ['ibal', 'historia', 'empresa', 'modernizacion', 'inversion'])) {
+            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias sobre IBAL:\n• "¿Cuál es la historia de IBAL?"\n• "Háblame de la modernización de PTAP"\n• "¿Cuánto invirtió IBAL en mejoras?"\n• "¿Qué es IBAL como empresa?"\n• "Control de calidad IBAL"\n• "Cobertura de servicios IBAL"\n\n🔍 También puedes preguntar: "Historia de IBAL"`;
+        }
+        
+        // Process suggestions
+        if (this.matchesKeywords(normalizedQuery, ['proceso', 'tratamiento', 'captacion', 'coagulacion', 'sedimentacion', 'filtracion'])) {
+            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias sobre Procesos:\n• "¿Cómo funciona la coagulación?"\n• "Explícame la sedimentación"\n• "¿Qué son los módulos hexagonales?"\n• "Proceso de filtración"\n• "Desinfección con cloro"\n• "Captación de agua"\n\n🔍 También puedes usar: /glosario coagulación`;
+        }
+        
+        // Water quality suggestions
+        if (this.matchesKeywords(normalizedQuery, ['calidad', 'agua', 'potable', 'irca', 'parametros'])) {
+            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias sobre Calidad del Agua:\n• "¿Qué es el IRCA?"\n• "Parámetros de calidad del agua"\n• "¿Por qué es importante el tratamiento?"\n• "Turbiedad del agua"\n• "pH del agua"\n• "Cloro residual"\n\n🔍 También puedes usar: /glosario IRCA`;
+        }
+        
+        // Chemical suggestions
+        if (this.matchesKeywords(normalizedQuery, ['quimico', 'sulfato', 'aluminio', 'mackenfloc', 'cloro'])) {
+            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias sobre Químicos:\n• "¿Qué es Mackenfloc?"\n• "Sulfato de aluminio vs Mackenfloc"\n• "Dosificación de químicos"\n• "Cloro gaseoso"\n• "Coagulantes en PTAP"\n• "Polímeros de ayuda"\n\n🔍 También puedes usar: /glosario mackenfloc`;
+        }
+        
+        // Infrastructure suggestions
+        if (this.matchesKeywords(normalizedQuery, ['tanque', 'distrito', 'infraestructura', 'almacenamiento', 'distribucion'])) {
+            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias sobre Infraestructura:\n• "Muéstrame los tanques"\n• "¿Cuántos distritos hidráulicos hay?"\n• "Capacidad de almacenamiento"\n• "Sistema de distribución"\n• "Tanque más grande"\n• "Distritos de Ibagué"\n\n🔍 También puedes preguntar: "¿Cuántos distritos hay?"`;
+        }
+        
+        // Technology suggestions
+        if (this.matchesKeywords(normalizedQuery, ['tecnologia', 'hexagonal', 'modulo', 'automatizacion', 'control'])) {
+            return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias sobre Tecnología:\n• "¿Qué son los módulos hexagonales?"\n• "Tecnología de sedimentación"\n• "Modernización tecnológica"\n• "Sistema de control automatizado"\n• "Paneles tipo colmena"\n• "Polipropileno de alta densidad"\n\n🔍 También puedes usar: /glosario módulos hexagonales`;
+        }
+        
+        // Default suggestions with context-aware categories
+        return `❓ No encontré el término "${query}" en el glosario.\n\n💡 Sugerencias por categorías:\n\n📋 <strong>Normatividad:</strong> "¿Qué es el RAS?", "Resolución 2115"\n🏢 <strong>IBAL:</strong> "Historia de IBAL", "Modernización PTAP"\n💧 <strong>Procesos:</strong> "Coagulación", "Módulos hexagonales"\n🧪 <strong>Calidad:</strong> "¿Qué es el IRCA?", "Parámetros agua"\n🏗️ <strong>Infraestructura:</strong> "Tanques", "Distritos"\n\n🔍 O usa: /categorias para explorar temas`;
     }
     
     getGlossaryHelp() {

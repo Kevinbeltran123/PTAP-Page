@@ -273,6 +273,11 @@ class PTAPApp {
      * Handle keyboard navigation
      */
     handleKeydown(event) {
+        // Don't capture keys when user is typing in input fields
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.contentEditable === 'true') {
+            return;
+        }
+
         switch (event.key) {
             case 'Escape':
                 if (this.modal) {
