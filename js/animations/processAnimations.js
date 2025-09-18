@@ -429,31 +429,31 @@ class ProcessAnimations {
     startDesarenadorAnimations() {
         console.log('🔧 Iniciando animación de desarenador');
         // Mostrar video educativo sobre desarenación
-        this.showYouTubeVideo('WfQjHYWOdTc', 'Proceso de Desarenación - Tratamiento de Agua');
+        this.showYouTubeVideo('jPzrusZyE94', 'Proceso de Desarenación - Tratamiento de Agua');
     }
 
     startCoagulacionAnimations() {
         console.log('🧪 Iniciando animación de coagulación-floculación');
         // Mostrar video educativo sobre coagulación y floculación
-        this.showYouTubeVideo('YHRqGJx0uEo', 'Coagulación y Floculación en Tratamiento de Agua');
+        this.showYouTubeVideo('PLpzj6SFHtg', 'Coagulación y Floculación en Tratamiento de Agua');
     }
 
     startSedimentacionAnimations() {
         console.log('🏗️ Iniciando animación de sedimentación');
         // Mostrar video educativo sobre sedimentación
-        this.showYouTubeVideo('Z5OvTdJ7JIE', 'Proceso de Sedimentación en Plantas de Tratamiento');
+        this.showYouTubeVideo('Nkx6QGfAfzQ', 'Proceso de Sedimentación en Plantas de Tratamiento');
     }
 
     startFiltracionAnimations() {
         console.log('🏭 Iniciando animación de filtración');
         // Mostrar video educativo sobre filtración
-        this.showYouTubeVideo('8XEQhVELWz4', 'Sistemas de Filtración en Tratamiento de Agua');
+        this.showYouTubeVideo('NvT9rOhLX0g', 'Sistemas de Filtración en Tratamiento de Agua');
     }
 
     startDesinfeccionAnimations() {
         console.log('☢️ Iniciando animación de desinfección');
         // Mostrar video educativo sobre desinfección
-        this.showYouTubeVideo('dG8QZf1E6es', 'Desinfección del Agua con Cloro - PTAP');
+        this.showYouTubeVideo('iv69PpoQk98', 'Desinfección del Agua con Cloro - PTAP');
     }
 
     startAlmacenamientoAnimations() {
