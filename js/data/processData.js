@@ -185,28 +185,6 @@ const processData = {
                 </div>
             </div>
             
-            <div class="technical-specs">
-                <h4>🔄 Etapas de Floculación</h4>
-                <div class="specs-grid">
-                    <div class="spec-item">
-                        <div class="spec-label">Primera Etapa</div>
-                        <div class="spec-value">Gradiente 60-80 s⁻¹</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Segunda Etapa</div>
-                        <div class="spec-value">Gradiente 30-50 s⁻¹</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Tercera Etapa</div>
-                        <div class="spec-value">Gradiente 15-25 s⁻¹</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Configuración</div>
-                        <div class="spec-value">Múltiples cámaras en serie</div>
-                    </div>
-                </div>
-            </div>
-            
             <p><strong>🎯 Función:</strong> La PTAP La Pola 1 opera con floculadores mecánicos horizontales y verticales con 
             volumen total de 735,53 m³ por módulo. La Pola 2 usa floculadores hidráulicos con tiempos de retención 
             extendidos de 25-30 minutos.</p>
@@ -520,31 +498,6 @@ const processData = {
         subtitle: "10 distritos hidráulicos - 688.65 km de redes",
         icon: "🏘️",
         content: `
-            <div class="water-sources-map">
-                <h3>🗺️ Distritos Hidráulicos de Distribución - IBAL Ibagué</h3>
-                <div class="osm-map-container">
-                    <div id="distribucionMap" class="leaflet-map"></div>
-                    <div class="map-controls">
-                        <button id="centerDistrictBtn" class="map-control-btn" title="Centrar en distritos">🎯</button>
-                        <button id="toggleDistrictsBtn" class="map-control-btn" title="Mostrar/Ocultar distritos">👁️</button>
-                        <button id="toggleLayerBtn" class="map-control-btn" title="Cambiar vista">🗺️</button>
-                    </div>
-                </div>
-                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.9); border-radius: 10px; font-size: 0.85em; color: #333;">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 10px;">
-                        <div><strong>🏘️ Distrito 1:</strong> Centro, Belén</div>
-                        <div><strong>🏘️ Distrito 2:</strong> Ancón, Malabar, Centro</div>
-                        <div><strong>🏘️ Distrito 5-6:</strong> Comfenalco, Santa Rita</div>
-                        <div><strong>🏘️ Distrito 7:</strong> Montecarlo, El Vergel</div>
-                        <div><strong>🏘️ Distrito 8-9:</strong> Los Tunjos, Picaleña</div>
-                        <div><strong>🏘️ Distrito 10:</strong> Ciudadela Simón Bolívar</div>
-                    </div>
-                    <div style="border-top: 1px solid #ddd; padding-top: 8px; font-size: 0.8em; color: #666;">
-                        <strong>Sistema:</strong> 10 distritos hidráulicos, 13 tanques de suministro, 25,000 m³ de almacenamiento
-                    </div>
-                </div>
-            </div>
-            
             <div class="technical-specs">
                 <h4>📊 Características del Sistema de Distribución</h4>
                 <div class="specs-grid">
