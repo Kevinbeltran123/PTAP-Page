@@ -8,7 +8,7 @@
 
 > **Exploración interactiva del proceso de tratamiento de agua potable en la Planta La Pola (IBAL) - Ibagué, Colombia**
 
-Una aplicación web educativa que visualiza de manera interactiva todos los procesos de la Planta de Tratamiento de Agua Potable La Pola, operada por IBAL (Empresa Ibaguereña de Acueducto y Alcantarillado). Desarrollada como proyecto académico para el curso de Procesos 2 en Ingeniería Ambiental.
+Una aplicación web educativa que visualiza de manera interactiva todos los procesos de la Planta de Tratamiento de Agua Potable La Pola, operada por IBAL (Empresa Ibaguereña de Acueducto y Alcantarillado). Desarrollada como proyecto académico para el curso de Procesos 2 en Ingeniería Industrial.
 
 ## 📸 Vista Previa
 
@@ -257,11 +257,11 @@ docs: update installation guide
 
 ## 🎓 Contexto Académico
 
-### **Universidad:** [Tu Universidad]
-### **Programa:** Ingeniería Ambiental
-### **Curso:** Procesos de Tratamiento de Aguas 2
-### **Semestre:** 2024-2
-### **Profesor:** [Nombre del Profesor]
+### **Universidad:** Universidad de Ibagué
+### **Programa:** Ingeniería Industrial
+### **Curso:** Procesos Industriales 2
+### **Semestre:** 2025-2
+### **Profesor:** Mauricio Hernández Sarabia
 
 ### 🎯 **Objetivos de Aprendizaje**
 - Comprender procesos de tratamiento de agua potable
@@ -285,7 +285,7 @@ docs: update installation guide
 
 ### 👨‍🎓 **Autor**
 **Kevin Beltrán**
-- 📧 Email: [kevin.beltran@universidad.edu](mailto:kevin.beltran@universidad.edu)
+- 📧 Email: [kevin.beltran@estudiantesunibague.edu.co](mailto:kevin.beltran@estudiantesunibague.edu.co)
 - 🐙 GitHub: [@kevin-beltran](https://github.com/kevin-beltran)
 - 💼 LinkedIn: [Kevin Beltrán](https://linkedin.com/in/kevin-beltran)
 
